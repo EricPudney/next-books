@@ -7,5 +7,5 @@ export type Book = {
     notes: string,
     subject: string,
     value: number,
-    date: string
+    date: number
 }

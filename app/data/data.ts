@@ -1,7 +1,10 @@
 import { sql } from "@vercel/postgres";
 import { Book } from "./definitions";
+import { unstable_noStore as noStore } from 'next/cache';
+
 
 export async function fetchAllBooks() {
+  noStore()
     try {
       const data = await sql<Book>`
         SELECT * FROM books;`
@@ -12,4 +15,3 @@ export async function fetchAllBooks() {
       throw new Error('Failed to fetch books.');
     }
   }
-
