@@ -19,7 +19,7 @@ export default function Booklist({
           {listall.map((book) => {
               return (
             
-              <div key={book.id} className="bg-white px-6 mx-2 my-2 w-48 h-28 rounded-lg">
+              <div key={book.id} className="bg-white px-3 mx-2 my-2 w-48 h-28 rounded-lg">
                   
                     <p className="truncate text-md font-semibold md:text-base my-1">
                       {book.title}
