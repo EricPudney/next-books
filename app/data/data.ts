@@ -28,3 +28,23 @@ export async function fetchAllBooks() {
       throw new Error('Failed to fetch book.');
     }
   }
+  
+  export async function summaryData() {
+    noStore()
+    try {
+      const data = await sql`
+      SELECT COUNT(id) AS Number,
+      MIN(date) AS Oldest,
+      MAX(value) AS Most_expensive,
+      AVG(value) AS Average_price FROM books;`
+      const TotalNumberOfBooks = data.rows[0].number;
+      const OldestBook = data.rows[0].oldest;
+      const MostExpensiveBook = data.rows[0].most_expensive;
+      const AveragePrice = data.rows[0].average_price;
+      return {TotalNumberOfBooks, OldestBook, MostExpensiveBook, AveragePrice}
+    } catch (error) {
+      console.error('Database Error:', error);
+      throw new Error('Failed to fetch book.');
+    }
+
+  }
