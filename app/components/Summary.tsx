@@ -1,4 +1,3 @@
-import { QueryResultRow } from "@vercel/postgres";
 
 export default async function Summary({
     data, text,
@@ -8,15 +7,14 @@ export default async function Summary({
     
     return (
         <>
-        <div className="bg-white px-3 mx-2 my-2 rounded-lg">
-
-        <div className="grid grid-cols-2 gap-4">
-                <h2 className='mb-4 text-xl md:text-2xl'>{text}</h2>
-                <p>{data}</p>
-                
+        <div className="rounded-xl bg-green-100 p-2 shadow-sm w-72 h-48 text-center">
+        <div className="flex p-4">
+                <span className='mb-4 text-lg md:text-lg'>{text}</span>
         </div>
+                <h2 className='mb-4 text-xl md:text-2xl'>{data}</h2>
         </div>
         </>
     )
     
 }
+

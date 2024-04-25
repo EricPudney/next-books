@@ -40,7 +40,7 @@ export async function fetchAllBooks() {
       const TotalNumberOfBooks = data.rows[0].number;
       const OldestBook = data.rows[0].oldest;
       const MostExpensiveBook = data.rows[0].most_expensive;
-      const AveragePrice = data.rows[0].average_price;
+      const AveragePrice = Math.round(data.rows[0].average_price);
       return {TotalNumberOfBooks, OldestBook, MostExpensiveBook, AveragePrice}
     } catch (error) {
       console.error('Database Error:', error);

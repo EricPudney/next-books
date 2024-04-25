@@ -11,7 +11,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                 <Bookinfo id={ref} />
             <div className="flex flex-wrap items-center justify-evenly">
                 <Backbutton />
-                <Editbutton />
+                <Editbutton id={ref}/>
             </div>
             </div>
             </div>
