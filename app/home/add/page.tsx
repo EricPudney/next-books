@@ -1,8 +1,8 @@
 export default function Page() {
     return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    <div>Add a new book</div>
-    <p>A page with a form that can add new books to the database.</p>
-    </main>
+        <>
+            <h2 className='mb-4 text-xl md:text-2xl mt-16'>Add a new book</h2>
+            <p>A page with a form that can add new books to the database.</p>
+        </>        
 )
 }

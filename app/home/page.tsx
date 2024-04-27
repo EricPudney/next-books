@@ -8,9 +8,8 @@ export default async function Page() {
     
 
     return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="flex w-full flex-col md:col-span-4">
-      <h2 className='mb-4 text-xl md:text-2xl'>
+    <>
+      <h2 className='mb-4 text-xl md:text-2xl mt-16'>
         My (rare) book collection
       </h2>
       <div className="flex grow flex-wrap justify-between rounded-xl bg-gray-50 p-4">
@@ -20,7 +19,6 @@ export default async function Page() {
         <Summary data={data.AveragePrice} text='Average value of books in the collection (SEK):' />
         <Summary data={data.OldestBook} text='Oldest book in the collection printed in: ' />
         </div>
-        </div>
-    </main>
+    </>
 )
 }
