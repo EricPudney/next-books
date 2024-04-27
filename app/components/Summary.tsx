@@ -7,7 +7,7 @@ export default async function Summary({
     
     return (
         <>
-        <div className="rounded-xl bg-green-100 p-2 shadow-sm w-72 h-48 text-center">
+        <div className="rounded-xl bg-orange-200 p-2 shadow-sm w-72 h-48 text-center">
         <div className="flex p-4">
                 <span className='mb-4 text-lg md:text-lg'>{text}</span>
         </div>

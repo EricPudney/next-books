@@ -21,7 +21,7 @@ export async function fetchAllBooks() {
     try {
       const data = await sql<Book>`
         SELECT * FROM books WHERE Id = ${id};`
-      const book = data.rows;
+      const book = data.rows[0];
       return book;
     } catch (error) {
       console.error('Database Error:', error);

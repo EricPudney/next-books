@@ -36,7 +36,7 @@ export default function Booklist({
                 <p className='truncate text-xs xs:block'>printed {book.date}</p>
                 </div>
                 <Link className="flex items-center justify-evenly" href={`/home/book/${book.id}`}>
-                  <button className="flex items-center bg-blue-500 hover:bg-blue-800 text-white text-sm my-1 py-0.5 px-2 rounded-full">
+                  <button className="flex items-center bg-orange-500 hover:bg-orange-800 text-white text-sm my-1 py-0.5 px-2 rounded">
                     <BookOpenIcon className="h-6 w-6"/>
                     <span>More</span>
                   </button>

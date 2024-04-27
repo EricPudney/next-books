@@ -1,25 +1,23 @@
 import { Book } from "../data/definitions";
-import { fetchBook } from "../data/data";
 
 export default async function Bookinfo({
-    id
+    book
 }: {
-    id: Book['id'];
+    book: Book;
 }) {
-    const response = await fetchBook(id)
-    const currentBook = response[0]
+    
     return (
         <>
         <div className="grid grid-cols-3 gap-4">
             <div>
-                <h2 className='mb-4 text-xl md:text-2xl'>{currentBook.title}</h2>
-                <p>{currentBook.author}</p>
-                <p>Subject: {currentBook.subject}</p>
-                <p>Binding: {currentBook.binding}</p>       
-                <p>Condition: {currentBook.condition}</p>
-                <p>Value: {currentBook.value} SEK</p>
-                <p>Date of publication: {currentBook.date}</p>
-                <p>Notes: {currentBook.notes}</p>
+                <h2 className='mb-4 text-xl md:text-2xl'>{book.title}</h2>
+                <p>{book.author}</p>
+                <p>Subject: {book.subject}</p>
+                <p>Binding: {book.binding}</p>       
+                <p>Condition: {book.condition}</p>
+                <p>Value: {book.value} SEK</p>
+                <p>Date of publication: {book.date}</p>
+                <p>Notes: {book.notes}</p>
             </div>
             <div className="grid grid-cols-subgrid gap-4 col-span-2">
                 
@@ -27,5 +25,4 @@ export default async function Bookinfo({
         </div>
         </>
     )
-    
 }
