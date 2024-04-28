@@ -16,8 +16,10 @@ export default async function Page() {
 
         <Summary data={data.TotalNumberOfBooks} text='Total number of books in the collection:' />
         <Summary data={data.MostExpensiveBook} text='Most expensive book in the collection (SEK):' />
+        <Summary data={data.CheapestBook} text='Least expensive book in the collection (SEK):' />
         <Summary data={data.AveragePrice} text='Average value of books in the collection (SEK):' />
         <Summary data={data.OldestBook} text='Oldest book in the collection printed in: ' />
+        <Summary data={data.AverageDate} text='Average date of publication in the collection: ' />
         </div>
     </>
 )

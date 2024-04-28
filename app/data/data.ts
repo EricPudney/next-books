@@ -34,14 +34,19 @@ export async function fetchAllBooks() {
     try {
       const data = await sql`
       SELECT COUNT(id) AS Number,
-      MIN(date) AS Oldest,
-      MAX(value) AS Most_expensive,
-      AVG(value) AS Average_price FROM books;`
+      MIN(date) AS oldest,
+      MAX(value) AS most_expensive,
+      MIN(value) AS least_expensive,
+      AVG(value) AS average_price,
+      AVG(date) AS average_date FROM books;
+      `
       const TotalNumberOfBooks = data.rows[0].number;
       const OldestBook = data.rows[0].oldest;
       const MostExpensiveBook = data.rows[0].most_expensive;
+      const CheapestBook = data.rows[0].least_expensive;
       const AveragePrice = Math.round(data.rows[0].average_price);
-      return {TotalNumberOfBooks, OldestBook, MostExpensiveBook, AveragePrice}
+      const AverageDate = Math.round(data.rows[0].average_date);
+      return {TotalNumberOfBooks, OldestBook, MostExpensiveBook, CheapestBook, AveragePrice, AverageDate}
     } catch (error) {
       console.error('Database Error:', error);
       throw new Error('Failed to fetch book.');
