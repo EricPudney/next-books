@@ -19,8 +19,8 @@ export default async function Bookinfo({
                 <p>Date of publication: {book.date}</p>
                 <p>Notes: {book.notes}</p>
             </div>
-            <div className="grid grid-cols-subgrid gap-4 col-span-2">
-                
+            <div className="grid grid-cols-subgrid col-span-2 mb-4">
+                <img src={book.image} alt='an image of the book' className="rounded place-self-end col-span-2 max-h-96"/>
             </div>
         </div>
         </>
