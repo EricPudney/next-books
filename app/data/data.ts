@@ -38,6 +38,7 @@ export async function fetchAllBooks() {
       MAX(value) AS most_expensive,
       MIN(value) AS least_expensive,
       AVG(value) AS average_price,
+      SUM(value) AS total_price,
       AVG(date) AS average_date FROM books;
       `
       const TotalNumberOfBooks = data.rows[0].number;
@@ -45,8 +46,9 @@ export async function fetchAllBooks() {
       const MostExpensiveBook = data.rows[0].most_expensive;
       const CheapestBook = data.rows[0].least_expensive;
       const AveragePrice = Math.round(data.rows[0].average_price);
+      const TotalPrice = data.rows[0].total_price;
       const AverageDate = Math.round(data.rows[0].average_date);
-      return {TotalNumberOfBooks, OldestBook, MostExpensiveBook, CheapestBook, AveragePrice, AverageDate}
+      return {TotalNumberOfBooks, OldestBook, MostExpensiveBook, CheapestBook, AveragePrice, TotalPrice, AverageDate}
     } catch (error) {
       console.error('Database Error:', error);
       throw new Error('Failed to fetch book.');
