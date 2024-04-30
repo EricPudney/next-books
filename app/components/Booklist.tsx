@@ -24,7 +24,7 @@ export default function Booklist({
                     <p className="truncate text-md font-semibold md:text-base my-1">
                       {book.title}
                     </p>
-                    <p className="hidden text-sm text-gray-500 sm:block mb-1">
+                    <p className="truncate text-sm text-gray-500 sm:block mb-1">
                       {book.author}
                     </p>
                 <div className="flex justify-between">
