@@ -40,7 +40,7 @@ export async function fetchAllBooks() {
       MAX(value / volumes) AS most_expensive_vol,
       MIN(value) AS least_expensive,
       AVG(value) AS average_price,
-      AVG(value / volumes) AS average_price_vol,
+      SUM(value) / SUM(volumes) AS average_price_vol,
       SUM(value) AS total_price,
       AVG(date) AS average_date FROM books;
       `
