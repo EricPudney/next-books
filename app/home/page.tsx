@@ -13,10 +13,13 @@ export default async function Page() {
         Information about the collection:
       </h2>
       <div className="flex grow flex flex-wrap items-center justify-evenly rounded-xl bg-gray-50 p-4">
-        <Summary data={data.TotalNumberOfBooks} text='Total number of books in the collection:' />
-        <Summary data={data.MostExpensiveBook} text='Most expensive book in the collection (SEK):' />
+        <Summary data={data.TotalNumberOfBooks} text='Total number of entries in the collection:' />
+        <Summary data={data.TotalNumberOfVols} text='Total number of volumes in the collection:' />
+        <Summary data={data.MostExpensiveBook} text='Most expensive entry in the collection (SEK):' />
+        <Summary data={data.MostExpensiveVolume} text='Most expensive single book in the collection (SEK):' />
         <Summary data={data.CheapestBook} text='Least expensive book in the collection (SEK):' />
-        <Summary data={data.AveragePrice} text='Average value of books in the collection (SEK):' />
+        <Summary data={data.AveragePrice} text='Average value of entries in the collection (SEK):' />
+        <Summary data={data.AveragePriceVolume} text='Average value of volumes in the collection (SEK):' />
         <Summary data={data.TotalPrice} text='Total value of books in the collection (SEK):' />
         <Summary data={data.OldestBook} text='Oldest book in the collection printed in: ' />
         <Summary data={data.AverageDate} text='Average date of publication in the collection: ' />

@@ -18,6 +18,7 @@ export default async function Bookinfo({
                 <p>Condition: {book.condition}</p>
                 <p>Value: {book.value} SEK</p>
                 <p>Date of publication: {book.date}</p>
+                <p>No of volumes/items: {book.volumes}</p>
                 <p>Notes: {book.notes}</p>
             </div>
             <div className="grid grid-cols-subgrid col-span-2 mb-4">

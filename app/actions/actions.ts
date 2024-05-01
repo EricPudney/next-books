@@ -16,6 +16,7 @@ const TempFormSchema = z.object({
          condition: z.string(),
          value: z.coerce.number(),
          date: z.coerce.number(),
+         volumes: z.coerce.number(),
          notes: z.string(),
          image: z.coerce.string()
      });
@@ -28,6 +29,7 @@ const NewBookSchema = z.object({
     condition: z.string(),
     value: z.coerce.number(),
     date: z.coerce.number(),
+    volumes: z.coerce.number(),
     notes: z.string(),
     image: z.string()
 })
@@ -48,6 +50,7 @@ export async function editBook(formData: FormData) {
     condition = ${editedBook.condition},
     value = ${editedBook.value},
     date = ${editedBook.date},
+    volumes = ${editedBook.volumes},
     notes = ${editedBook.notes},
     image = ${imageLink}
     WHERE Id = ${editedBook.id};
@@ -63,7 +66,7 @@ export async function addBook(formData: FormData) {
     const imageLink = newBook.image.replace("dl=0", "raw=1");
 
     const result = await sql`
-    INSERT INTO books (title, author, subject, binding, condition, value, date, notes, image)
+    INSERT INTO books (title, author, subject, binding, condition, value, date, volumes, notes, image)
     VALUES (${newBook.title}, 
         ${newBook.author}, 
         ${newBook.subject}, 
@@ -71,6 +74,7 @@ export async function addBook(formData: FormData) {
         ${newBook.condition},
         ${newBook.value},
         ${newBook.date},
+        ${newBook.volumes},
         ${newBook.notes},
         ${imageLink})
     `
