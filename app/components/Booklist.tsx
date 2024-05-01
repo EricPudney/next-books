@@ -41,7 +41,6 @@ export default function Booklist({
                     <span>More</span>
                   </button>
                 </Link>
-
         </div> 
             );
         })}

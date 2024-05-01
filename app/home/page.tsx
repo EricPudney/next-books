@@ -10,7 +10,7 @@ export default async function Page() {
     return (
     <>
       <h2 className='mb-4 text-xl md:text-2xl mt-16'>
-        My (rare) book collection
+        Information about the collection:
       </h2>
       <div className="flex grow flex flex-wrap items-center justify-evenly rounded-xl bg-gray-50 p-4">
         <Summary data={data.TotalNumberOfBooks} text='Total number of books in the collection:' />
