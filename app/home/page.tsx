@@ -1,11 +1,11 @@
 import Summary from "../components/Summary"
+//import Carousel from "../components/Carousel"
+
 import { summaryData } from "../data/data"
 
 export default async function Page() {
 
     const data = await summaryData()
-    console.log(data)
-    
 
     return (
     <>
