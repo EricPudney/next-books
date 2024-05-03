@@ -13,13 +13,10 @@ export default function Carousel ({ data }: {
 
     return (
         <div>
-            {/* Carousel container */}
             <div className='w-80 h-60 rounded-md overflow-hidden relative'>
-                {/* Image container */}
                 <div
                     ref={carouselRef}
                     className='w-full h-full absolute flex transition-all duration-300'>
-                    {/* Map through data to render images */}
                     {data.map((item, i) => (
                         <div key={i} className='relative shrink-0 w-full h-full'>
                             <Summary
