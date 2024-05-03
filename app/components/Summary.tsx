@@ -1,8 +1,8 @@
 
 export default async function Summary({
-    data, text,
+    text, value
 }: {
-    data: number, text: string;
+    text: string, value: number;
 }) {
     
     return (
@@ -11,7 +11,7 @@ export default async function Summary({
         <div className="flex p-4">
                 <span className='mb-4 text-lg md:text-lg'>{text}</span>
         </div>
-                <h2 className='mb-4 text-xl md:text-2xl'>{data}</h2>
+                <h2 className='mb-4 text-xl md:text-2xl'>{value}</h2>
         </div>
         </>
     )

@@ -44,17 +44,26 @@ export async function fetchAllBooks() {
       SUM(value) AS total_price,
       AVG(date) AS average_date FROM books;
       `
-      const TotalNumberOfBooks = data.rows[0].number;
+      const TotalNumberOfEntries = data.rows[0].number;
       const TotalNumberOfVols = data.rows[0].number_vols;
       const OldestBook = data.rows[0].oldest;
-      const MostExpensiveBook = data.rows[0].most_expensive;
+      const MostExpensiveEntry = data.rows[0].most_expensive;
       const MostExpensiveVolume = data.rows[0].most_expensive_vol;
-      const CheapestBook = data.rows[0].least_expensive;
+      const CheapestEntry = data.rows[0].least_expensive;
       const AveragePrice = Math.round(data.rows[0].average_price);
       const AveragePriceVolume = Math.round(data.rows[0].average_price_vol);
       const TotalPrice = data.rows[0].total_price;
       const AverageDate = Math.round(data.rows[0].average_date);
-      return {TotalNumberOfBooks, TotalNumberOfVols, OldestBook, MostExpensiveBook, MostExpensiveVolume, CheapestBook, AveragePrice, AveragePriceVolume, TotalPrice, AverageDate}
+      return [{text: 'Total number of entries in the collection:', value: TotalNumberOfEntries}, 
+              {text: 'Total number of volumes in the collection:', value: TotalNumberOfVols}, 
+              {text: 'Oldest book in the collection printed in:', value: OldestBook}, 
+              {text: 'Most expensive entry in the collection (SEK):', value: MostExpensiveEntry}, 
+              {text: 'Most expensive single volume in the collection (SEK):', value: MostExpensiveVolume}, 
+              {text: 'Least expensive entry in the collection (SEK):', value: CheapestEntry}, 
+              {text: 'Average value of entries in the collection (SEK):', value: AveragePrice}, 
+              {text: 'Average value of volumes in the collection (SEK):', value: AveragePriceVolume}, 
+              {text: 'Total value of books in the collection (SEK):', value: TotalPrice}, 
+              {text: 'Average date of publication in the collection:', value: AverageDate}]
     } catch (error) {
       console.error('Database Error:', error);
       throw new Error('Failed to fetch book.');
