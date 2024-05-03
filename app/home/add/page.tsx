@@ -9,7 +9,7 @@ export default function Page() {
         <>
             <h2 className='mb-4 text-xl md:text-2xl mt-16'>Add a new book to the database</h2>
             <form name="addBook" action={addBook} className="flex flex-col mx-16">
-                <BookForm />
+                <BookForm book={null}/>
                 <div className="flex mx-24 mt-4 justify-between">
                     <Backbutton />
                     <Uploadbutton />

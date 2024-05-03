@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             <h2 className='mb-4 text-xl md:text-2xl mt-16'>Edit book no. {ref}</h2>
             <form name="editedBook" action={editBook} className="flex flex-col mx-16">
                 <input type="hidden" name='id' value={ref}/>
-                <BookForm />
+                <BookForm book={book} />
                 <div className="flex mx-24 mt-4 justify-between">
                     <Backbutton />
                     <Uploadbutton />
