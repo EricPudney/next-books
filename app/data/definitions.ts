@@ -11,3 +11,9 @@ export type Book = {
     volumes: number, 
     image: string
 }
+
+export type FilterProps = {
+    name: string,
+    options: string[],
+    onChange: ()=>void
+}
