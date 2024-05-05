@@ -6,8 +6,8 @@ export default function Filter(props: FilterProps) {
     return(
         <>
         <select onChange={props.onChange}>
-        <option value={''}>{props.name}</option>
-        {props.options.map((opt)=><option value={opt}>{opt}</option>)}
+        <option value={''} key={1}>{props.name}</option>
+        {props.options.map((opt, i)=><option value={opt} key={i+2}>{opt}</option>)}
         </select>
         </>
     )
