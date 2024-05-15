@@ -44,7 +44,7 @@ useEffect(() => {
             setDateFilter({min: 1800, max: 1899})    
             break;
           case '1900s and later':
-            setDateFilter({min: 1900, max: 2500})
+            setDateFilter({min: 1900, max: 2100})
             break;
           default:
             setDateFilter({min: -1, max: -1})

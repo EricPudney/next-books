@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import Summary from './Summary';
 import React, { useRef, useState } from 'react'
@@ -28,7 +28,6 @@ export default function Carousel ({ data }: {
                 </div>
             </div>
 
-            {/* Navigation buttons */}
             <div className='flex justify-center mt-3'>
                 <button
                     disabled={currentSlide === 0}

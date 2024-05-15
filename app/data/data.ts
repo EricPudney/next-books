@@ -66,7 +66,7 @@ export async function fetchAllBooks() {
               {text: 'Average date of publication in the collection:', value: AverageDate}]
     } catch (error) {
       console.error('Database Error:', error);
-      throw new Error('Failed to fetch book.');
+      throw new Error('Failed to fetch summary data.');
     }
 
   }
