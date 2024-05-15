@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react"
+
 export type Book = {
     id: number,
     title: string, 
@@ -15,5 +17,5 @@ export type Book = {
 export type FilterProps = {
     name: string,
     options: string[],
-    onChange: ()=>void
+    onChange: (e: ChangeEvent<HTMLSelectElement>)=>void
 }
