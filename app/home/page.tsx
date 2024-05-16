@@ -1,4 +1,3 @@
-// import Summary from "../components/Summary"
 import Carousel from "../components/Carousel"
 
 import { summaryData } from "../data/data"
@@ -17,5 +16,3 @@ export default async function Page() {
     </>
 )
 }
-
-// { data.map((item, i) => <Summary text={item.text} value={item.value} key={i}/>) }

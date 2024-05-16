@@ -11,12 +11,17 @@ export default function Carousel ({ data }: {
     const [currentSlide, setCurrentSlide] = useState(0)
     const carouselRef = useRef(null)
 
+    const containerStyle = {
+        transform: `translateX(-${currentSlide * 100}%)`
+    }
+
     return (
         <div>
             <div className='w-80 h-60 rounded-md overflow-hidden relative'>
                 <div
                     ref={carouselRef}
-                    className='w-full h-full absolute flex transition-all duration-300'>
+                    style={containerStyle}
+                    className='w-full h-full flex transition-all duration-300'>
                     {data.map((item, i) => (
                         <div key={i} className='relative shrink-0 w-full h-full'>
                             <Summary
