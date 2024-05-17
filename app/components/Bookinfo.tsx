@@ -1,5 +1,5 @@
 import { Book } from "../data/definitions";
-import Image from "next/image";
+import ToggleImage from "./ToggleImage";
 
 export default async function Bookinfo({
     book
@@ -22,9 +22,11 @@ export default async function Bookinfo({
                 <p>Notes: {book.notes}</p>
             </div>
             <div className="grid grid-cols-subgrid col-span-2 mb-4">
-                <Image src={book.image} alt='an image of the book' width={270} height={480} className="rounded place-self-end col-span-2 max-h-96"/>
+                <ToggleImage src={book.image} width={270} height={480} />
             </div>
         </div>
         </>
     )
 }
+
+//                 <Image src={book.image} alt='an image of the book' width={270} height={480} className="rounded place-self-end col-span-2 max-h-96"/>

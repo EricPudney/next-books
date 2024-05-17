@@ -41,9 +41,8 @@ export async function editBook(formData: FormData) {
     image = ${imageLink}
     WHERE Id = ${editedBook.id};
     `
-
     revalidatePath('/home/booklist');
-    redirect(`/home/booklist`);
+    redirect(`/home/book/${editedBook.id}`);
 }
 
 const NewBookSchema = z.object({
