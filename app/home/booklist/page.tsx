@@ -99,7 +99,7 @@ return(
       <div className="flex flex-wrap justify-evenly items-center mb-4">
         <Filter name={'Filter by date'} options={['1600s and earlier', '1700s', '1800s', '1900s and later']} onChange={filterByDate} />
         <Filter name={'Filter by value'} options={['Up to 250 SEK', '250-500 SEK', '500-1000 SEK', '1000-2000 SEK', '2000 SEK+']} onChange={filterByValue} />
-        <Filter name={'Filter by subject'} options={['Poetry', 'Drama', 'Literature', 'History', 'Philosophy', 'Science']} onChange={filterBySubject} />
+        <Filter name={'Filter by subject'} options={['Poetry', 'Drama', 'Literature', 'History', 'Philosophy', 'Science', 'Theology']} onChange={filterBySubject} />
       </div>
       <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
 
