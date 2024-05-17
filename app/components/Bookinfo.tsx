@@ -21,9 +21,7 @@ export default async function Bookinfo({
                 <p>No of volumes/items: {book.volumes}</p>
                 <p>Notes: {book.notes}</p>
             </div>
-            <div className="grid grid-cols-subgrid col-span-2 mb-4">
-                <ToggleImage src={book.image} width={270} height={480} />
-            </div>
+                <ToggleImage src={book.image} />
         </div>
         </>
     )
