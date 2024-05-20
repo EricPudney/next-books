@@ -96,7 +96,7 @@ return(
       <h2 className='mb-4 text-xl md:text-2xl'>
         Books
       </h2>
-      <div className="flex flex-wrap justify-evenly items-center mb-4">
+      <div className="flex flex-wrap flex-col justify-evenly items-center mb-4 gap-2 md:flex-row">
         <Filter name={'Filter by date'} options={['1600s and earlier', '1700s', '1800s', '1900s and later']} onChange={filterByDate} />
         <Filter name={'Filter by value'} options={['Up to 250 SEK', '250-500 SEK', '500-1000 SEK', '1000-2000 SEK', '2000 SEK+']} onChange={filterByValue} />
         <Filter name={'Filter by subject'} options={['Poetry', 'Drama', 'Literature', 'History', 'Philosophy', 'Science', 'Theology']} onChange={filterBySubject} />
