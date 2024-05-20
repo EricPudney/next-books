@@ -8,14 +8,12 @@ export default async function Page({ params }: { params: { id: string } }) {
     const response = await fetchBook(ref)
     const currentBook = response
     return (
-        <main className="flex max-h-min flex-col items-center justify-between p-24">
-            <div className="flex w-full flex-col md:col-span-4">
+        <main className="flex max-h-min flex-col items-center justify-between xs:p-12 lg:p-24 mt-12">
             <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
                 <Bookinfo book={currentBook} />
             <div className="flex flex-wrap items-center justify-evenly">
                 <Backbutton />
                 <Editbutton book={currentBook}/>
-            </div>
             </div>
             </div>
         </main>

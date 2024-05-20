@@ -9,9 +9,9 @@ export default async function Bookinfo({
     
     return (
         <>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="md:grid md:grid-cols-3 md:gap-4 sm:flex-row">
             <div>
-                <h2 className='mb-4 text-xl md:text-2xl'>{book.title}</h2>
+                <h2 className='mb-4 text-lg md:text-2xl'>{book.title}</h2>
                 <p>{book.author}</p>
                 <p>Subject: {book.subject}</p>
                 <p>Binding: {book.binding}</p>       

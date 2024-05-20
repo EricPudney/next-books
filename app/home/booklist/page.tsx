@@ -92,7 +92,7 @@ useEffect(() => {
     }
 
 return(
-<div className="flex w-full flex-col md:col-span-4 mt-16">
+<div className="flex w-full flex-col mt-16">
       <h2 className='mb-4 text-xl md:text-2xl'>
         Books
       </h2>
