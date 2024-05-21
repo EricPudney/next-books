@@ -12,8 +12,8 @@ export default function Page() {
 
 const [booklist, setBooklist] = useState<Book[]>([])
 const [tempArray, setTempArray] = useState<Book[]>([])
-const [dateFilter, setDateFilter] = useState({min: -1, max: -1})
-const [valueFilter, setValueFilter] = useState({min: -1, max: -1})
+const [dateFilter, setDateFilter] = useState<undefined | {}>(undefined)
+const [valueFilter, setValueFilter] = useState<undefined | {}>(undefined)
 const [subjectFilter, setSubjectFilter] = useState('')
 
 useEffect(() => {
@@ -34,27 +34,38 @@ useEffect(() => {
 
     function filterByDate(e: ChangeEvent<HTMLSelectElement>) {
         const { value } = e.target;
-        DateFilterValue[value] ? setDateFilter(DateFilterValue[value]) : setDateFilter({min: -1, max: -1})
+        DateFilterValue[value] ? setDateFilter(DateFilterValue[value]) : setDateFilter(undefined)
     }
 
     function filterByValue(e: ChangeEvent<HTMLSelectElement>) {
       const { value } = e.target;
-      ValueFilterValue[value] ? setValueFilter(ValueFilterValue[value]) : setValueFilter({min: -1, max: -1})
+      ValueFilterValue[value] ? setValueFilter(ValueFilterValue[value]) : setValueFilter(undefined)
     }
     
     function filterBySubject(e: ChangeEvent<HTMLSelectElement>) {
       setSubjectFilter(e.target.value)
     }
 
-    function applyFilters(subjectFilter: string, dateFilter: {min: number, max: number}, valueFilter: {min: number, max: number}) {
+    function applyFilters(
+      subjectFilter: string, 
+      dateFilter: undefined | {min?: number, max?: number}, 
+      valueFilter: undefined | {min?: number, max?: number}
+    ) {
       let booksSubj: Book[] = booklist
       booksSubj = subjectFilter !== '' ? booksSubj.filter((book) => book.subject.toLowerCase().includes(subjectFilter.toLowerCase())) : booksSubj;
       let booksDate: Book[] = booklist
-      booksDate = dateFilter.min !== -1 ? booksDate.filter((book) => book.date > dateFilter.min) : booksDate;
-      booksDate = dateFilter.max !== -1 ? booksDate.filter((book) => book.date < dateFilter.max) : booksDate;
+      
+      if (dateFilter) {
+        if (dateFilter.min) {booksDate = booksDate.filter((book) => book.date > dateFilter!.min!)}
+        if (dateFilter.max) {booksDate = booksDate.filter((book) => book.date < dateFilter!.max!)} 
+      } 
+      
       let booksValue: Book[] = booklist;
-      booksValue = valueFilter.min !== -1 ? booksValue.filter((book) => book.value > valueFilter.min): booksValue;
-      booksValue = valueFilter.max !== -1 ? booksValue.filter((book) => book.value < valueFilter.max) : booksValue;
+      if (valueFilter) {
+        if (valueFilter.min) {booksValue = booksValue.filter((book) => book.value > valueFilter!.min!)} 
+        if (valueFilter.max) {booksValue = booksValue.filter((book) => book.value < valueFilter!.max!)} 
+      }
+
       const newBooklist: Book[] = booklist.filter((book) => booksSubj.includes(book) && booksDate.includes(book) && booksValue.includes(book))
       setTempArray(newBooklist)
     }
