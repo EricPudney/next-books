@@ -5,6 +5,7 @@ import { Book } from "@/app/data/definitions";
 import { BookOpenIcon } from "@heroicons/react/16/solid";
 import { ChangeEvent, useEffect, useState } from "react";
 import Filter from "@/app/components/Filter";
+import { DateFilterValue, ValueFilterValue, SubjectFilterValue } from "@/app/data/definitions";
 import listBooks from "@/app/components/Booklist";
 
 export default function Page() {
@@ -32,46 +33,13 @@ useEffect(() => {
 }, [dateFilter, valueFilter, subjectFilter])
 
     function filterByDate(e: ChangeEvent<HTMLSelectElement>) {
-        const filterValue = e.target.value;
-        switch (filterValue) {
-          case '1600s and earlier':
-            setDateFilter({min: 0, max: 1699})
-            break;
-          case '1700s':
-            setDateFilter({min: 1700, max: 1799})
-            break;
-          case '1800s':
-            setDateFilter({min: 1800, max: 1899})    
-            break;
-          case '1900s and later':
-            setDateFilter({min: 1900, max: 2100})
-            break;
-          default:
-            setDateFilter({min: -1, max: -1})
-          }
+        const { value } = e.target;
+        DateFilterValue[value] ? setDateFilter(DateFilterValue[value]) : setDateFilter({min: -1, max: -1})
     }
 
     function filterByValue(e: ChangeEvent<HTMLSelectElement>) {
-      const filterValue = e.target.value;
-      switch (filterValue) {
-        case 'Up to 250 SEK':
-          setValueFilter({min: 0, max: 250})    
-          break;
-        case '250-500 SEK':
-          setValueFilter({min: 250, max: 500})    
-          break;
-        case '500-1000 SEK':
-          setValueFilter({min: 500, max: 1000})    
-          break;
-        case '1000-2000 SEK':
-          setValueFilter({min: 1000, max: 2000})    
-          break;
-        case '2000 SEK+':
-          setValueFilter({min: 2000, max: 15000})
-          break;
-        default:
-          setValueFilter({min: -1, max: -1})
-      }    
+      const { value } = e.target;
+      ValueFilterValue[value] ? setValueFilter(ValueFilterValue[value]) : setValueFilter({min: -1, max: -1})
     }
     
     function filterBySubject(e: ChangeEvent<HTMLSelectElement>) {
@@ -97,9 +65,9 @@ return(
         Books
       </h2>
       <div className="flex flex-wrap flex-col justify-evenly items-center mb-4 gap-2 md:flex-row">
-        <Filter name={'Filter by date'} options={['1600s and earlier', '1700s', '1800s', '1900s and later']} onChange={filterByDate} />
-        <Filter name={'Filter by value'} options={['Up to 250 SEK', '250-500 SEK', '500-1000 SEK', '1000-2000 SEK', '2000 SEK+']} onChange={filterByValue} />
-        <Filter name={'Filter by subject'} options={['Poetry', 'Drama', 'Literature', 'History', 'Philosophy', 'Science', 'Theology']} onChange={filterBySubject} />
+        <Filter name={'Filter by date'} options={DateFilterValue} onChange={filterByDate} />
+        <Filter name={'Filter by value'} options={ValueFilterValue} onChange={filterByValue} />
+        <Filter name={'Filter by subject'} options={SubjectFilterValue} onChange={filterBySubject} />
       </div>
       <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
 
