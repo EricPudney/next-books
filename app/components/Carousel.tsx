@@ -19,7 +19,7 @@ export default function Carousel ({ data }: {
             <div className='w-full h-60 rounded-md overflow-hidden relative'>
                 <div
                     style={containerStyle}
-                    className='w-80 h-full flex transition-all duration-300'>
+                    className='w-96 h-full flex transition-all duration-300'>
                     {data.map((item, i) => (
                         <div key={i} className='relative shrink-0 w-full h-full'>
                             <Summary
