@@ -1,7 +1,7 @@
 'use client'
 
 import Summary from './Summary';
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 
 export default function Carousel ({ data }: {
     data: {
@@ -9,7 +9,6 @@ export default function Carousel ({ data }: {
     }[]
 }) {
     const [currentSlide, setCurrentSlide] = useState(0)
-    const carouselRef = useRef(null)
 
     const containerStyle = {
         transform: `translateX(-${currentSlide * 100}%)`
@@ -17,11 +16,10 @@ export default function Carousel ({ data }: {
 
     return (
         <div>
-            <div className='w-80 h-60 rounded-md overflow-hidden relative'>
+            <div className='w-full h-60 rounded-md overflow-hidden relative'>
                 <div
-                    ref={carouselRef}
                     style={containerStyle}
-                    className='w-full h-full flex transition-all duration-300'>
+                    className='w-80 h-full flex transition-all duration-300'>
                     {data.map((item, i) => (
                         <div key={i} className='relative shrink-0 w-full h-full'>
                             <Summary

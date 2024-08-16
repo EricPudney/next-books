@@ -17,7 +17,7 @@ export type Book = {
 export type FilterProps = {
     name: string,
     options: string[] | NumericFilter,
-    onChange: (e: ChangeEvent<HTMLSelectElement>)=>void
+    onChange: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
 type NumericFilter = {[value: string]: {min?: number, max?: number}}
@@ -44,4 +44,3 @@ export const SubjectFilterValue: string[] = [
     'Science', 
     'Theology'
 ]
-

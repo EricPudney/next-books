@@ -53,8 +53,8 @@ useEffect(() => {
     ) {
       let booksSubj: Book[] = booklist
       booksSubj = subjectFilter !== '' ? booksSubj.filter((book) => book.subject.toLowerCase().includes(subjectFilter.toLowerCase())) : booksSubj;
-      let booksDate: Book[] = booklist
       
+      let booksDate: Book[] = booklist
       if (dateFilter) {
         if (dateFilter.min) {booksDate = booksDate.filter((book) => book.date > dateFilter!.min!)}
         if (dateFilter.max) {booksDate = booksDate.filter((book) => book.date < dateFilter!.max!)} 
@@ -83,7 +83,7 @@ return(
       <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
 
           <div className="flex flex-wrap items-center justify-evenly">
-          {booklist && tempArray.map((book) => {
+          {booklist.length > 0 && tempArray.map((book) => {
               return (
               <div key={book.id} className="bg-white px-3 mx-2 my-2 w-48 h-28 rounded-lg">
                   
@@ -110,6 +110,7 @@ return(
         </div> 
             );
         })}
+        {booklist.length < 1 && <p>Loading...</p>}
         </div>
       </div>
     </div>
