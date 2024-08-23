@@ -22,7 +22,7 @@ useEffect(() => {
     setBooklist(books) 
   }
   fetch();
-}, [applyFilters])
+}, [])
 
 useEffect(() => {
   setTempArray(booklist)
