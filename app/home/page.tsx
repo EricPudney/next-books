@@ -11,7 +11,7 @@ export default async function Page() {
       <h2 className='mb-4 text-xl md:text-2xl mt-16'>
         Information about the collection:
       </h2>
-      <div className="flex grow flex flex-wrap items-center justify-evenly rounded-xl bg-gray-50 p-4 mt-24 mx-72">
+      <div className="flex grow flex flex-wrap items-center justify-evenly rounded-xl bg-gray-50 p-4 mt-8 sm:mt-16 md:mt-24 lg:mt-32 xl:mt-40 mx-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-72">
         <Carousel data={data} />
       </div>
     </>

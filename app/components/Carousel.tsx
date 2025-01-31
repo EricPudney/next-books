@@ -16,12 +16,12 @@ export default function Carousel ({ data }: {
 
     return (
         <div>
-            <div className='w-full h-60 rounded-md overflow-hidden relative'>
+            <div className='w-full h-60 rounded-md overflow-hidden relative max-w-[24rem]'>   
                 <div
                     style={containerStyle}
-                    className='w-96 h-full flex transition-all duration-300'>
+                    className='relative flex transition-all duration-300'>
                     {data.map((item, i) => (
-                        <div key={i} className='relative shrink-0 w-full h-full'>
+                        <div key={i} className='relative shrink-0 grow-0 w-full h-full max-w-full'>
                             <Summary
                                 text={item.text}
                                 value={item.value}
