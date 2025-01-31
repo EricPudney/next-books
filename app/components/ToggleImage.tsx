@@ -14,7 +14,7 @@ export default function ToggleImage({
     return(
         <>
         {toggle && <div className="absolute top-0 left-0 bg-gray-500/70 w-full h-full grid place-items-center" onClick={() => setToggle(!toggle)}>
-            <Image src={src} alt='an image of the book' width={540} height={960} className="rounded justify-self-center self-center max-h-screen"/>
+            <Image src={src} alt='an image of the book' width={540} height={960} className="rounded justify-self-center self-center max-h-screen object-contain"/>
             <span className="text-sm tracking-tight	">Click to return!</span>
             </div>}
         <div className="grid grid-cols-subgrid col-span-2 my-4 place-items-center">
