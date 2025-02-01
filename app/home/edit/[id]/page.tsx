@@ -4,7 +4,8 @@ import Backbutton from "@/app/components/Backbutton";
 import { fetchBook } from "@/app/data/data";
 import BookForm from "@/app/components/BookForm";
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page(props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
     const ref = parseInt(params.id);
     const book = await fetchBook(ref);
 

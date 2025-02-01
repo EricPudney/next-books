@@ -3,7 +3,8 @@ import Bookinfo from "@/app/components/Bookinfo"
 import Editbutton from "@/app/components/Editbutton";
 import { fetchBook } from "@/app/data/data";
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page(props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
     const ref = parseInt(params.id);
     const response = await fetchBook(ref)
     const currentBook = response
@@ -18,6 +19,5 @@ export default async function Page({ params }: { params: { id: string } }) {
             </div>
         </main>
     )
-    
 }
 
