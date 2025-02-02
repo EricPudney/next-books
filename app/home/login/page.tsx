@@ -1,11 +1,23 @@
+import { RegisterForm } from "@/app/components/Register";
+import { Suspense } from "react";
+
 export default function Page() {
 
-    const unicode = "\u002F\u002F"
+  return (
+    <>
+      <h2 className="mb-4 text-xl md:text-2xl mt-16">Register</h2>
+        <div>
+        <Suspense>
+            <RegisterForm/>
+        </Suspense>
+      </div>
 
-    return (
-        <>
-            <h2 className='mb-4 text-xl md:text-2xl mt-16'>Login</h2>
-            <p>{unicode.toString()} TODO</p>
-        </>        
-)
+      <h2 className="mb-4 text-xl md:text-2xl mt-16">Login</h2>
+        <div>
+        <Suspense>
+            // add Login component here
+        </Suspense>
+      </div>
+    </>
+  );
 }

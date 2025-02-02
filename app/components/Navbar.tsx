@@ -47,7 +47,7 @@ return(
 
     <Link href='/home/login' className={linkStyle}>
       <LockOpenIcon className={iconStyle} />
-        <p className={textStyle}>Login</p>
+        <p className={textStyle}>Account</p>
     </Link>
     </nav>
 )
