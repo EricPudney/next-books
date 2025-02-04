@@ -13,8 +13,8 @@ export default function PdfViewer() {
     return (
       <div className="p-4 flex flex-col items-center">
         <div className="p-4 flex flex-row gap-x-4">
-        <Image src="/swe.png" alt="svenska flaggan" title="Sweden icons created by Freepik - Flaticon" width={flagWidth} height={flagHeight} onClick={() => setEnglish(false)}/>
-        <Image src="/eng.png" alt="UK flag" title="UK flag icons created by Freepik - Flaticon" width={flagWidth} height={flagHeight} onClick={() => setEnglish(true)}/>
+        <Image className="cursor-pointer" src="/swe.png" alt="svenska flaggan" title="Sweden icons created by Freepik - Flaticon" width={flagWidth} height={flagHeight} onClick={() => setEnglish(false)}/>
+        <Image className="cursor-pointer" src="/eng.png" alt="UK flag" title="UK flag icons created by Freepik - Flaticon" width={flagWidth} height={flagHeight} onClick={() => setEnglish(true)}/>
         </div>
         
         <div className="w-full max-w-4xl max-h-[1137px] aspect-[1/1.414]">

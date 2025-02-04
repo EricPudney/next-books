@@ -3,7 +3,8 @@
 import { z } from 'zod'
 import bcrypt from 'bcryptjs'
 import { sql } from "@vercel/postgres";
-import { revalidatePath } from 'next/cache';
+import { createSession } from '../lib/session';
+//import { revalidatePath } from 'next/cache';
 
  
 const RegistrationFormSchema = z.object({
@@ -25,7 +26,10 @@ type FormState =
         email?: string[]
         password?: string[]
       }
-      message?: string
+      message?: {
+        title?: string,
+        info?: string
+      }
     }
   | undefined
 
@@ -42,22 +46,30 @@ export async function register(state: FormState, formData: FormData) {
   }
   
     
-  
+  try {
 
-// 2. Prepare data for insertion into database
-const { email, password } = validatedFields.data
-// e.g. Hash the user's password before storing it
-const hashedPassword = await bcrypt.hash(password, 10)
+    
+    const { email, password } = validatedFields.data
+    const hashedPassword = await bcrypt.hash(password, 10)
 
-// 3. Insert the user into the database or call an Auth Library's API
-await sql`
-  INSERT INTO users (email, password)
+    // 3. Insert the user into the database or call an Auth Library's API
+    const user = await sql`
+    INSERT INTO users (email, password)
     VALUES (${email}, 
-        ${hashedPassword})`
+    ${hashedPassword})
+    RETURNING *`
 
+    await createSession(user.rows[0].id, user.rows[0].role)
+
+    return { message: {title: 'Success!', info: 'You have successfully registered an account! This means that your user details are now stored in the database, but since you only have basic access you still can\u0027t mess with my books - I have the only admin account. Please let me know if you\u0027d like me to delete your information - I\u0027m still working on an account page that will allow you to do it yourself.'} };
+  } 
+  catch (error) {
+    console.error('Registration error:', error);
+    return { 
+      message: {title: 'Oops!', info: 'An unexpected error occurred during registration. This has never happened as far as I know, so I hope you are not seeing this.' }
+    };
+  }
 }
-// 4. Create user session
-// 5. Redirect user
 
 
 export async function login(formData: FormData) {

@@ -2,6 +2,7 @@
 
 import { register } from "../actions/auth";
 import { useActionState } from "react";
+import { InfoAlert } from "./InfoAlert";
 
 export function RegisterForm() {
   const [state, action, pending] = useActionState(register, undefined);
@@ -31,6 +32,7 @@ export function RegisterForm() {
       )}
       <button className="flex items-center bg-blue-500 hover:bg-blue-700 text-white text-sm my-1 py-0.5 pr-2 pl-2 rounded" type="submit">Register</button>
       {pending && <p>...working...</p>}
+      {state?.message && <InfoAlert title={state.message.title} info={state.message.info} />}
     </form>
   );
 }
