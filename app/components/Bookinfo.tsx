@@ -26,5 +26,3 @@ export default async function Bookinfo({
         </>
     )
 }
-
-//                 <Image src={book.image} alt='an image of the book' width={270} height={480} className="rounded place-self-end col-span-2 max-h-96"/>

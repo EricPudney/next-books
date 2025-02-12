@@ -3,16 +3,23 @@ import { Book } from "../data/definitions";
 import { PencilSquareIcon } from "@heroicons/react/24/solid"
 import { useRouter } from "next/navigation"
 
-export default function Editbutton({
-    book
+export default function EditButton({
+    book, active
 }: {
-    book: Book;
+    book: Book,
+    active: boolean;
 }) {
     const router = useRouter()
-    return(
+    if (active) {
+        return(
         <button className="flex items-center bg-green-500 hover:bg-green-700 text-white text-sm my-1 py-0.5 pr-2 pl-2 rounded" onClick={()=>router.push(`/home/edit/${book.id}`)}>
             <PencilSquareIcon className="h-6 w-6 mr-1"/>
             <span>Edit</span>
-        </button>
-    )
+        </button>)
+    }
+    return(
+        <button className="flex items-center bg-gray-700 text-white text-sm my-1 py-0.5 pr-2 pl-2 rounded cursor-not-allowed opacity-50" disabled >
+            <PencilSquareIcon className="h-6 w-6 mr-1"/>
+            <span>Edit</span>
+        </button>)
 }
