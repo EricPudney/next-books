@@ -3,10 +3,8 @@
 import { z } from 'zod'
 import bcrypt from 'bcryptjs'
 import { sql } from "@vercel/postgres";
-import { createSession } from '../lib/session';
-//import { revalidatePath } from 'next/cache';
+import { createSession, deleteSession } from '../lib/session';
 
- 
 const RegistrationFormSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email.' }).trim(),
   password: z
@@ -44,15 +42,11 @@ export async function register(state: FormState, formData: FormData) {
       errors: validatedFields.error.flatten().fieldErrors,
     }
   }
-  
     
   try {
-
-    
     const { email, password } = validatedFields.data
     const hashedPassword = await bcrypt.hash(password, 10)
 
-    // 3. Insert the user into the database or call an Auth Library's API
     const user = await sql`
     INSERT INTO users (email, password)
     VALUES (${email}, 
@@ -61,16 +55,45 @@ export async function register(state: FormState, formData: FormData) {
 
     await createSession(user.rows[0].id, user.rows[0].role)
 
-    return { message: {title: 'Success!', info: 'You have successfully registered an account! This means that your user details are now stored in the database, but since you only have basic access you still can\u0027t mess with my books - I have the only admin account. Please let me know if you\u0027d like me to delete your information - I\u0027m still working on an account page that will allow you to do it yourself.'} };
+    return { message: {title: 'Success!', info: 'You have successfully registered an account! This means that your user details are now stored in the database, but since you only have basic access you still can\u0027t mess with my books - I have the only admin account, which was created directly with an SQL query. Please let me know if you\u0027d like me to delete your information - I\u0027m still working on an account page that will allow you to do it yourself.'}};
   } 
   catch (error) {
-    console.error('Registration error:', error);
+    console.error('Registration error: ', error);
     return { 
-      message: {title: 'Oops!', info: 'An unexpected error occurred during registration. This has never happened as far as I know, so I hope you are not seeing this.' }
+      message: {title: 'Oops!', info: 'An unexpected error occurred during registration. This has never happened as far as I know, so I hope you\u0027re not seeing this.' }
     };
   }
 }
 
+export async function login(state: FormState, formData: FormData) {  
+  const credentials = RegistrationFormSchema.safeParse({
+    email: formData.get('email'),
+    password: formData.get('password'),
+  })
 
-export async function login(formData: FormData) {
+  if (!credentials.success) {
+    return {
+      errors: credentials.error.flatten().fieldErrors,
+    }
+  }
+
+  const { email, password } = credentials.data
+
+  const user = await sql`
+    SELECT * FROM users
+    WHERE email = ${email}`
+
+  if (user.rows.length === 0) {
+    return { message: {title: "Error", info: "Unable to log in - email address not found."}}
+  }
+  
+  const authenticated: boolean = await bcrypt.compare(password, user.rows[0].password)
+  console.log(authenticated)
+  if (!authenticated) {
+    return { message: {title: "Error", info: "Unable to log in - please check your password and try again."}}
+  }
+  
+  const session = await createSession(user.rows[0].id, user.rows[0].role)
+  console.log(session)
+  return { message: {title: 'Success!', info: 'You have successfully logged in! Welcome back.'} };
 }

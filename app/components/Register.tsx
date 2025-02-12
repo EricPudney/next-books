@@ -8,7 +8,11 @@ export function RegisterForm() {
   const [state, action, pending] = useActionState(register, undefined);
   const styling = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 
+ 
   return (
+    <>
+    <h2 className="mb-4 text-xl md:text-2xl mt-16">Register</h2>
+
     <form action={action}>
       <div>
         <label htmlFor="email">Email</label>
@@ -34,5 +38,6 @@ export function RegisterForm() {
       {pending && <p>...working...</p>}
       {state?.message && <InfoAlert title={state.message.title} info={state.message.info} />}
     </form>
-  );
+      </>
+  )
 }

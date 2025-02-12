@@ -1,6 +1,6 @@
 import { editBook } from "@/app/actions/actions";
-import Uploadbutton from "@/app/components/Uploadbutton";
-import Backbutton from "@/app/components/Backbutton";
+import UploadButton from "@/app/components/UploadButton";
+import Backbutton from "@/app/components/BackButton";
 import { fetchBook } from "@/app/data/data";
 import BookForm from "@/app/components/BookForm";
 
@@ -17,7 +17,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
                 <BookForm book={book} />
                 <div className="flex mx-24 mt-4 justify-between">
                     <Backbutton />
-                    <Uploadbutton />
+                    <UploadButton active={true}/>
                 </div>
             </form>   
         </>
