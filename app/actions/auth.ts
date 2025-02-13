@@ -55,7 +55,7 @@ export async function register(state: FormState, formData: FormData) {
 
     await createSession(user.rows[0].id, user.rows[0].role)
 
-    return { message: {title: 'Success!', info: 'You have successfully registered an account! This means that your user details are now stored in the database, but since you only have basic access you still can\u0027t mess with my books - I have the only admin account, which was created directly with an SQL query. Please let me know if you\u0027d like me to delete your information - I\u0027m still working on an account page that will allow you to do it yourself.'}};
+    return { message: {title: 'Success!', info: 'You have successfully registered an account!'}};
   } 
   catch (error) {
     console.error('Registration error: ', error);
@@ -88,12 +88,10 @@ export async function login(state: FormState, formData: FormData) {
   }
   
   const authenticated: boolean = await bcrypt.compare(password, user.rows[0].password)
-  console.log(authenticated)
   if (!authenticated) {
     return { message: {title: "Error", info: "Unable to log in - please check your password and try again."}}
   }
   
-  const session = await createSession(user.rows[0].id, user.rows[0].role)
-  console.log(session)
+  await createSession(user.rows[0].id, user.rows[0].role)
   return { message: {title: 'Success!', info: 'You have successfully logged in! Welcome back.'} };
 }

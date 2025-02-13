@@ -13,7 +13,7 @@ export default function Page() {
       <h2 className='mb-48 text-xl md:text-2xl'>
         Welcome to my book collection
       </h2>
-        <p className="mx-48 text-md">This hobby project showcases some of my small colection of rare, collectible, and antique books. It is built in NextJS 15, using server components and server actions rather than an API layer. Styling is in Tailwind CSS and the information is stored in a PostgreSQL database hosted on Vercel. Pictures are linked from Dropbox. I have also posted my CV here. This is still work in progress; I will be adding login and registration fnctionality. For now I will have to trust any visitors not to insert records into the database.</p>
+        <p className="mx-48 text-md">This hobby project showcases some of my small colection of rare, collectible, and antique books. It is built in NextJS 15, using server components and server actions rather than an API layer. Styling is in Tailwind CSS and the information is stored in a PostgreSQL database hosted on Vercel. Pictures are linked from Dropbox. I have also posted my CV here. You can create an account and log in if you like (although this does not allow you to do anything much). Passwords are of course hashed with bcrypt.</p>
         <button className="flex items-center bg-green-600 hover:bg-green-800 text-white text-xl px-4 py-2 rounded align-self-center mt-24" onClick={()=>router.push('/home')}>
             Enter
         </button>
