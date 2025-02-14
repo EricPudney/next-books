@@ -55,7 +55,7 @@ export async function register(state: FormState, formData: FormData) {
 
     await createSession(user.rows[0].id, user.rows[0].role)
 
-    return { message: {title: 'Success!', info: 'You have successfully registered an account!'}};
+    return { message: {title: 'Success!', info: 'You have successfully registered an account and are now logged in.'}};
   } 
   catch (error) {
     console.error('Registration error: ', error);
