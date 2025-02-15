@@ -1,17 +1,19 @@
-import { LoginForm } from "@/app/components/Login";
-import { RegisterForm } from "@/app/components/Register";
+import { login, register } from "@/app/actions/auth";
+import { LoginForm } from "@/app/components/LoginForm";
 import { Suspense } from "react";
 
 export default async function Page() {
   return (
     <>
+    <div className="flex flex-col md:flex-row">
       <Suspense>
-        <RegisterForm />
+      <LoginForm name={"Register"} func={register}/>
       </Suspense>
 
       <Suspense>
-        <LoginForm />
+        <LoginForm name={"Login"} func={login}/>
       </Suspense>
+    </div>
     </>
   );
 }

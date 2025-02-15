@@ -8,16 +8,13 @@ import Link from "next/link";
 import returnUserRole, { deleteSession } from "../lib/session";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
+import { linkIconStyle, linkStyle, linkTextStyle, navBarStyle } from "../styles";
 
 export default async function Navbar() {
-  const linkStyle = "flex items-center";
-  const iconStyle = "h-6 w-6";
-  const textStyle =
-    "hidden sm:inline-block ml-2 text-sm sm:text-base lg:text-lg";
-    const userRole = await returnUserRole();
+  const userRole = await returnUserRole();
 
   return (
-    <nav className="flex items-center justify-around p-4 bg-orange-700 text-white">
+    <nav className={navBarStyle}>
       <div></div>
       <div></div>
       <div></div>
@@ -25,26 +22,26 @@ export default async function Navbar() {
 
       <div>
         <Link href="/home" className={linkStyle}>
-          <HomeIcon className={iconStyle} />
-          <p className={textStyle}>Home</p>
+          <HomeIcon className={linkIconStyle} />
+          <p className={linkTextStyle}>Home</p>
         </Link>
       </div>
       <div>
         <Link href="/home/booklist" className={linkStyle}>
-          <ListBulletIcon className={iconStyle} />
-          <p className={textStyle}>Booklist</p>
+          <ListBulletIcon className={linkIconStyle} />
+          <p className={linkTextStyle}>Booklist</p>
         </Link>
       </div>
       <div>
         <Link href="/home/add" className={linkStyle}>
-          <PlusCircleIcon className={iconStyle} />
-          <p className={textStyle}>Add book</p>
+          <PlusCircleIcon className={linkIconStyle} />
+          <p className={linkTextStyle}>Add book</p>
         </Link>
       </div>
       <div>
         <Link href="/home/about" className={linkStyle}>
-          <QuestionMarkCircleIcon className={iconStyle} />
-          <p className={textStyle}>About me</p>
+          <QuestionMarkCircleIcon className={linkIconStyle} />
+          <p className={linkTextStyle}>About me</p>
         </Link>
       </div>
       <div></div>

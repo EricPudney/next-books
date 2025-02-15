@@ -7,6 +7,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import Filter from "@/app/components/Filter";
 import { DateFilterValue, ValueFilterValue, SubjectFilterValue } from "@/app/data/definitions";
 import listBooks from "@/app/components/Booklist";
+import { bookDetailsButtonStyle } from "@/app/styles";
 
 export default function Page() {
 
@@ -102,7 +103,7 @@ return(
                 <p className='truncate text-xs xs:block'>printed {book.date}</p>
                 </div>
                 <Link className="flex items-center justify-evenly" href={`/home/book/${book.id}`}>
-                  <button className="flex items-center bg-orange-500 hover:bg-orange-800 text-white text-sm my-1 py-0.5 px-2 rounded">
+                  <button className={bookDetailsButtonStyle}>
                     <BookOpenIcon className="h-6 w-6"/>
                     <span>More</span>
                   </button>

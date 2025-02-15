@@ -8,7 +8,7 @@ interface InfoAlertProps {
   duration?: number;
 }
 
-export function InfoAlert({ title, info, duration = 10000 }: InfoAlertProps) {
+export function InfoAlert({ title, info, duration = 5000 }: InfoAlertProps) {
   const [isVisible, setIsVisible] = useState(true);
   useEffect(() => {
     if (duration <= 0) return;
@@ -23,7 +23,7 @@ export function InfoAlert({ title, info, duration = 10000 }: InfoAlertProps) {
   if (!isVisible) return null;
   return (
     <div
-      className="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3"
+      className="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 max-w-md"
       role="alert"
     >
       <p className="font-bold">{title}</p>

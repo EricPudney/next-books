@@ -1,7 +1,9 @@
 'use client'
+
 import { Book } from "../data/definitions";
 import { PencilSquareIcon } from "@heroicons/react/24/solid"
 import { useRouter } from "next/navigation"
+import { greenButtonStyle, greyedOutButtonStyle } from "../styles";
 
 export default function EditButton({
     book, active
@@ -12,13 +14,13 @@ export default function EditButton({
     const router = useRouter()
     if (active) {
         return(
-        <button className="flex items-center bg-green-500 hover:bg-green-700 text-white text-sm my-1 py-0.5 pr-2 pl-2 rounded" onClick={()=>router.push(`/home/edit/${book.id}`)}>
+        <button className={greenButtonStyle} onClick={()=>router.push(`/home/edit/${book.id}`)}>
             <PencilSquareIcon className="h-6 w-6 mr-1"/>
             <span>Edit</span>
         </button>)
     }
     return(
-        <button className="flex items-center bg-gray-700 text-white text-sm my-1 py-0.5 pr-2 pl-2 rounded cursor-not-allowed opacity-50" disabled >
+        <button className={greyedOutButtonStyle} disabled >
             <PencilSquareIcon className="h-6 w-6 mr-1"/>
             <span>Edit</span>
         </button>)

@@ -18,7 +18,7 @@ const RegistrationFormSchema = z.object({
     .trim(),
 })
  
-type FormState =
+export type FormState =
   | {
       errors?: {
         email?: string[]
