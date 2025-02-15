@@ -3,7 +3,7 @@
 import { z } from 'zod'
 import bcrypt from 'bcryptjs'
 import { sql } from "@vercel/postgres";
-import { createSession, deleteSession } from '../lib/session';
+import { createSession } from '../lib/session';
 
 const RegistrationFormSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email.' }).trim(),

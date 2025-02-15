@@ -5,8 +5,9 @@ import {
   QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import LoginLink from "./LoginLink";
-import returnUserRole from "../lib/session";
+import returnUserRole, { deleteSession } from "../lib/session";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
 export default async function Navbar() {
   const linkStyle = "flex items-center";
@@ -49,9 +50,7 @@ export default async function Navbar() {
       <div></div>
       <div></div>
       <div>
-      <Link href="/home/login" className={linkStyle}>
-        <LoginLink loggedInUser={userRole === "USER" || userRole === "ADMIN"}/>
-      </Link>
+        {userRole === "USER" || userRole === "ADMIN" ? <LogoutButton deleteSession={deleteSession} /> : <Link href="/home/login" className={linkStyle}><LoginButton /></Link>}      
       </div>
     </nav>
   );
