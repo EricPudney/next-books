@@ -46,7 +46,7 @@ export default async function Navbar() {
       </div>
       <div></div>
       <div></div>
-      <div>
+      <div className="w-[6%] flex justify-center">
         {userRole === "USER" || userRole === "ADMIN" ? <LogoutButton deleteSession={deleteSession} /> : <Link href="/home/login" className={linkStyle}><LoginButton /></Link>}      
       </div>
     </nav>
