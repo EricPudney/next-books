@@ -24,7 +24,6 @@ export async function verifySession(token: string | undefined = '') {
     const { payload } = await jwtVerify(token, encodedKey, {
       algorithms: ['HS256'],
     });
-    console.log(payload)
     return payload;
   } catch (error) {
     console.log('Failed to verify session: ', error);
@@ -82,6 +81,5 @@ export default async function returnUserRole(){
   const token = cookieStore.get('session')?.value
   const session = token ? await verifySession(token) : { role: 'GUEST' };
   const userRole = session?.role;
-  console.log(userRole);
   return userRole;
  }
