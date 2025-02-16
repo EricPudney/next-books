@@ -16,7 +16,7 @@ export function LoginForm({
   
   return (
     <>
-      <div className="flex flex-col flex-grow md:mr-12">
+      <div className="flex flex-col flex-grow w-full min-w-0 md:mr-12">
         <h2 className={headingStyle}>{name}</h2>
         <form action={action}>
           <div>
@@ -54,10 +54,12 @@ export function LoginForm({
             {name}
           </button>
           {pending && <p>...working...</p>}
-          {state?.message && (
-            <InfoAlert title={state.message.title} info={state.message.info} />
-          )}
         </form>
+      <div className="flex flex-row items-center">
+          {state?.message && (
+              <InfoAlert title={state.message.title} info={state.message.info} />
+          )}
+      </div>
       </div>
     </>
   );
