@@ -2,9 +2,13 @@ import { fetchBooks } from "app/data/data";
 import Filters from "app/components/Filters";
 import BookListItem from "@/app/components/BookListItem";
 
+type SearchParams = {
+  [key: string]: string | undefined
+}
+
 type PageProps = {
-  searchParams: { [key: string]: string | undefined };
-};
+  searchParams: SearchParams
+}
 
 export default async function ItemsPage({ searchParams }: PageProps) {
   const params = await searchParams;
