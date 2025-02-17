@@ -3,14 +3,13 @@ import { Book } from "./definitions";
 import { unstable_noStore as noStore } from 'next/cache';
 
 
-export async function fetchBooks(filters: { [key: string]: string }) {
-  noStore()
+export async function fetchBooks(filters: {[key: string]: string | undefined}) {
     try {
       const data = await sql<Book>`
         SELECT * FROM books;`
       const books = data.rows;
 
-      if (Object.keys(filters).length === 0) {
+      if (Object.keys(filters).length === 0 || filters === undefined) {
         return books;
       }
       
@@ -61,7 +60,7 @@ export async function fetchBooks(filters: { [key: string]: string }) {
           return book.value > valueRange.min && book.value < valueRange.max
         })
       }
-      if (subject?.length > 0) {
+      if (subject?.length && subject?.length > 0) {
         subjectFilteredBooks = books.filter((book) => {
           return book.subject.includes(subject)
         })
