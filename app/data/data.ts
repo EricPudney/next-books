@@ -76,20 +76,6 @@ export async function fetchBooks(filters: { [key: string]: string }) {
     }
   }
 
-  
-    // let query = db.items.findMany({ where: {} });
-  
-    // if (filters.category) {
-    //   query.where.category = filters.category;
-    // }
-  
-    // if (filters.price) {
-    //   query.where.price = { lte: parseFloat(filters.price) };
-    // }
-  
-    // return query;
-  
-  
   export async function fetchBook(id: number) {
   noStore()
     try {
