@@ -2,15 +2,8 @@ import { fetchBooks } from "app/data/data";
 import Filters from "app/components/Filters";
 import BookListItem from "@/app/components/BookListItem";
 
-type SearchParams = {
-  [key: string]: string | undefined
-}
 
-type PageProps = {
-  searchParams: SearchParams
-}
-
-export default async function ItemsPage({ searchParams }: PageProps) {
+export default async function ItemsPage({ searchParams }: {searchParams: Promise<any>}) {
   const params = await searchParams;
   const books = await fetchBooks(params);
 
