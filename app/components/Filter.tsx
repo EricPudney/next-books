@@ -12,13 +12,7 @@ export default function Filter(props: FilterProps) {
         <option value={""} key={1}>
           {props.name}
         </option>
-        {Array.isArray(props.options)
-          ? props.options.map((opt, i) => (
-              <option value={opt} key={i + 2}>
-                {opt}
-              </option>
-            ))
-          : Object.keys(props.options).map((opt, i) => (
+        {props.options.map((opt, i) => (
               <option value={opt} key={i + 2}>
                 {opt}
               </option>
