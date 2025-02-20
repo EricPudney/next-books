@@ -7,7 +7,7 @@ export default function LogoutButton({deleteSession}: {deleteSession: ()=>Promis
     
     return (
         <>
-            <button onClick={() => deleteSession()} className={linkStyle}><ArrowRightStartOnRectangleIcon className={linkIconStyle}/><p className={linkTextStyle}>Logout</p></button>
+            <button onClick={() => deleteSession()} className={linkStyle}><ArrowRightStartOnRectangleIcon className={linkIconStyle}/><span className={linkTextStyle}>Logout</span></button>
         </>
         )
 }

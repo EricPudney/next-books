@@ -1,6 +1,8 @@
 import { login, register } from "@/app/actions/auth";
 import { LoginForm } from "@/app/components/LoginForm";
 import returnUserRole from "@/app/lib/session";
+import Image from "next/image";
+
 import { headingStyle } from "@/app/styles";
 import { Suspense } from "react";
 
@@ -9,30 +11,151 @@ export default async function Page() {
 
   if (userRole === "ADMIN") {
     return (
-      <>
-      <h2 className={headingStyle}>Hi Eric</h2>
-      </>
-    )
+      <main className="min-h-screen pt-20 pb-24 md:pb-6 px-4 bg-gray-50">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Hi Eric</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Quick Stats */}
+              <div className="bg-blue-50 rounded-lg p-4">
+                <h3 className="text-lg font-semibold text-blue-900 mb-2">Collection Stats</h3>
+                <p className="text-blue-700">Your book collection is growing!</p>
+              </div>
+              <div className="bg-green-50 rounded-lg p-4">
+                <h3 className="text-lg font-semibold text-green-900 mb-2">Recent Activity</h3>
+                <p className="text-green-700">Latest updates and changes</p>
+              </div>
+              <div className="bg-purple-50 rounded-lg p-4">
+                <h3 className="text-lg font-semibold text-purple-900 mb-2">Quick Actions</h3>
+                <p className="text-purple-700">Manage your collection</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    );
   }
+
   if (userRole === "USER") {
     return (
-      <>
-      <h2 className={headingStyle}>Hello there.</h2>
-      <p>You are currently signed in with standard user access. This means you can have a closer look at individual books in the collection, but you are still not allowed to edit or upload books. Only I get to do that, for obvious reasons.</p>
-      </>
-    )
+      <main className="min-h-screen pt-20 pb-24 md:pb-6 px-4 bg-gray-50">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Hello there.</h2>
+            <div className="prose prose-blue max-w-none">
+              <p className="text-gray-600 leading-relaxed">
+                You are currently signed in with standard user access. This means you can have a closer 
+                look at individual books in the collection, but you are still not allowed to edit or 
+                upload books. Only I get to do that, for obvious reasons.
+              </p>
+              
+              {/* Featured Books Section */}
+              <div className="mt-8">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Featured Books</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="bg-gray-50 rounded-lg p-4 flex items-center space-x-4">
+                      <div className="w-16 h-16 relative">
+                        <Image
+                          src={`/photo.jpg`}
+                          alt="Book cover"
+                          width={64}
+                          height={64}
+                          className="rounded-md"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-gray-900">Book Title {i}</h4>
+                        <p className="text-sm text-gray-500">Author Name</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    );
   }
-  return (
-    <>
-    <div className="flex flex-col md:flex-row">
-      <Suspense>
-      <LoginForm name={"Register"} func={register}/>
-      </Suspense>
 
-      <Suspense>
-        <LoginForm name={"Login"} func={login}/>
-      </Suspense>
-    </div>
-    </>
+  return (
+    <main className="min-h-screen pt-20 pb-24 md:pb-6 px-4 bg-gray-50">
+      <div className="max-w-screen-xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Left column with welcome message and decoration */}
+          <div className="hidden md:flex flex-col justify-center p-8">
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">Welcome to the Book Collection</h1>
+            <p className="text-gray-600 mb-8">Join us to explore a carefully curated selection of books.</p>
+            
+            {/* Decorative Element */}
+            <div className="relative h-64 w-full">
+              <div className="absolute inset-0 bg-blue-100 rounded-lg transform -rotate-6"></div>
+              <div className="absolute inset-0 bg-blue-200 rounded-lg transform rotate-3"></div>
+              <div className="absolute inset-0 bg-white rounded-lg shadow-sm flex items-center justify-center">
+                <Image
+                  src="/photo.jpg"
+                  alt="Decorative book illustration"
+                  width={200}
+                  height={200}
+                  className="rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Right column with forms */}
+          <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
+            <div className="space-y-8">
+              <Suspense fallback={<div className="h-64 flex items-center justify-center">Loading...</div>}>
+                <LoginForm name="Register" func={register} />
+              </Suspense>
+
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-gray-200"></div>
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-2 bg-white text-gray-500">or</span>
+                </div>
+              </div>
+
+              <Suspense fallback={<div className="h-64 flex items-center justify-center">Loading...</div>}>
+                <LoginForm name="Login" func={login} />
+              </Suspense>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   );
+
+  // if (userRole === "ADMIN") {
+  //   return (
+  //     <>
+  //     <h2 className={headingStyle}>Hi Eric</h2>
+  //     </>
+  //   )
+  // }
+  // if (userRole === "USER") {
+  //   return (
+  //     <>
+  //     <h2 className={headingStyle}>Hello there.</h2>
+  //     <p>You are currently signed in with standard user access. This means you can have a closer look at individual books in the collection, but you are still not allowed to edit or upload books. Only I get to do that, for obvious reasons.</p>
+  //     </>
+  //   )
+  // }
+  // return (
+  //   <>
+  //   <div className="flex flex-col md:flex-row">
+  //     <Suspense>
+  //     <LoginForm name={"Register"} func={register}/>
+  //     </Suspense>
+
+  //     <Suspense>
+  //       <LoginForm name={"Login"} func={login}/>
+  //     </Suspense>
+  //   </div>
+  //   </>
+  // );
 }

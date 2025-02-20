@@ -20,6 +20,13 @@ export type FilterProps = {
     onChange: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
+// export type FilterProps = {
+//     name: string;
+//     options: string[];
+//     onChange: (value: string) => void;
+//   }
+  
+
 export const DateFilterValue: string[] = 
     ['1500s',
     '1600s',

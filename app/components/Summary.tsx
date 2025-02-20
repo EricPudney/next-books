@@ -1,19 +1,37 @@
 'use client'
 
+import { useRouter } from "next/navigation"
+import { carouselCardStyle, greenButtonStyle, headingStyle } from "../styles";
+
 export default function Summary({
-    text, value
+    text, value, bookLink
 }: {
-    text: string, value: number;
+    text: string, value: number, bookLink?: string;
 }) {
+
+    //const router = useRouter()
     
     return (
         <>
-        <div className="rounded-xl bg-orange-200 p-2 m-3 shadow-md flex-grow text-center">
+        <div className="bg-gray-50 rounded-lg p-6 h-full transition-all duration-300 hover:shadow-md">
+      <div className="flex flex-col h-full">
+        <p className="text-sm md:text-base text-gray-600 mb-4">
+          {text}
+        </p>
+        <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mt-auto">
+          {value}
+        </h3>
+      </div>
+    </div>
+        {/* <div className={carouselCardStyle}>
         <div className="flex p-4">
-            <span className='mb-4 text-lg md:text-lg'>{text}</span>
+            <span className='mb-4 text-xs md:text-sm'>{text}</span>
         </div>
-            <h2 className='mb-4 text-xl md:text-2xl'>{value}</h2>
-        </div>
+            <h2 className={headingStyle}>{value}</h2>
+            {/* <div className="flex jutify-center">
+            {bookLink ? <button className={greenButtonStyle} onClick={()=>router.push(bookLink)}>Check it out!</button> : <button className={greenButtonStyle} onClick={()=>router.push('/home/booklist')}>To the books!</button>}
+        </div> 
+            </div> */}
         </>
     )
     

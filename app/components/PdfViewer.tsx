@@ -1,15 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { headingStyle } from "../styles";
+import { basicCentredCol, flagStyle, rowSmallGap } from "../styles";
 
 export default function PdfViewer() {
   const EngCVUrl = "/EricPudneyCV(eng).pdf";
   const SweCVUrl = "/EricPudneyCV(sv).pdf";
   const [english, setEnglish] = useState(true);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const flagWidth = 50;
-  const flagHeight = 30;
+  const flagWidth = 20;
+  const flagHeight = 12;
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,23 +24,22 @@ export default function PdfViewer() {
 
   return (
     <>
-    <h2 className={headingStyle}>About me</h2>
-    <div className="p-4 flex flex-col items-center">
-      <div className="p-4 flex flex-row gap-x-4">
+    <div className={basicCentredCol}>
+      <div className={rowSmallGap}>
         <Image
-          className="cursor-pointer"
+          className={flagStyle}
           src="/swe.png"
           alt="svenska flaggan"
-          title="Sweden icons created by Freepik - Flaticon"
+          layout="intrinsic"
           width={flagWidth}
           height={flagHeight}
           onClick={() => setEnglish(false)}
           />
         <Image
-          className="cursor-pointer"
+          className={flagStyle}
           src="/eng.png"
           alt="UK flag"
-          title="UK flag icons created by Freepik - Flaticon"
+          layout="intrinsic"
           width={flagWidth}
           height={flagHeight}
           onClick={() => setEnglish(true)}

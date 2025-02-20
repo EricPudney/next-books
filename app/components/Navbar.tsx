@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   HomeIcon,
   ListBulletIcon,
@@ -5,50 +6,49 @@ import {
   QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import returnUserRole, { deleteSession } from "../lib/session";
-import LoginButton from "./LoginButton";
-import LogoutButton from "./LogoutButton";
-import { linkIconStyle, linkStyle, linkTextStyle, navBarStyle } from "../styles";
+import LogoutButton from './LogoutButton';
+import LoginButton from './LoginButton';
+import returnUserRole, { deleteSession } from '../lib/session';
+import { linkIconStyle, linkStyle, linkTextStyle } from '../styles';
 
-export default async function Navbar() {
+const Navbar = async () => {
   const userRole = await returnUserRole();
 
-  return (
-    <nav className={navBarStyle}>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+  const navItems = [
+    { href: '/home', icon: HomeIcon, label: 'Home' },
+    { href: '/home/booklist', icon: ListBulletIcon, label: 'Booklist' },
+    { href: '/home/add', icon: PlusCircleIcon, label: 'Add book' },
+    { href: '/home/about', icon: QuestionMarkCircleIcon, label: 'About me' },
+  ];
 
-      <div>
-        <Link href="/home" className={linkStyle}>
-          <HomeIcon className={linkIconStyle} />
-          <p className={linkTextStyle}>Home</p>
-        </Link>
-      </div>
-      <div>
-        <Link href="/home/booklist" className={linkStyle}>
-          <ListBulletIcon className={linkIconStyle} />
-          <p className={linkTextStyle}>Booklist</p>
-        </Link>
-      </div>
-      <div>
-        <Link href="/home/add" className={linkStyle}>
-          <PlusCircleIcon className={linkIconStyle} />
-          <p className={linkTextStyle}>Add book</p>
-        </Link>
-      </div>
-      <div>
-        <Link href="/home/about" className={linkStyle}>
-          <QuestionMarkCircleIcon className={linkIconStyle} />
-          <p className={linkTextStyle}>About me</p>
-        </Link>
-      </div>
-      <div></div>
-      <div></div>
-      <div className="w-[6%] flex justify-center">
-        {userRole === "USER" || userRole === "ADMIN" ? <LogoutButton deleteSession={deleteSession} /> : <Link href="/home/login" className={linkStyle}><LoginButton /></Link>}      
+  return (
+    <nav className="fixed bottom-0 left-0 right-0 md:top-0 md:bottom-auto bg-white border-t md:border-b border-gray-200 shadow-lg md:shadow-sm z-50">
+      <div className="max-w-screen-xl mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex-1 flex items-center justify-center md:justify-start space-x-4">
+            {navItems.map(({ href, icon: Icon, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className={linkStyle}
+              >
+                <Icon className={linkIconStyle} />
+                <span className={linkTextStyle}>{label}</span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex items-center justify-center">
+            {userRole === "USER" || userRole === "ADMIN" ? (
+              <LogoutButton deleteSession={deleteSession} />
+            ) : (
+                <LoginButton />
+            )}
+          </div>
+        </div>
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
