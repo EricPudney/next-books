@@ -22,7 +22,7 @@ export default async function Page() {
 //         </>        
 // )
 return (
-    <main className="min-h-screen pt-20 pb-24 md:pb-6 px-4 bg-gray-50">
+    <main className="pt-20 pb-24 md:pb-6 px-4 bg-gray-50 overflow-hidden">
       <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
@@ -38,13 +38,8 @@ return (
                     Use this form to add a new book to the database. All fields marked with * are required.
                   </p>
                   <div className="mt-4 bg-blue-50 rounded-lg p-4">
-                    <h3 className="text-sm font-medium text-blue-800 mb-2">Tips for adding books:</h3>
-                    <ul className="text-sm text-blue-700 space-y-2">
-                      <li>Use clear, descriptive titles</li>
-                      <li>Check condition carefully</li>
-                      <li>Include detailed notes for special editions</li>
-                      <li>Verify image links before submitting</li>
-                    </ul>
+                    <h3 className="text-sm font-medium text-blue-800 mb-2">Hi Eric. Add a book!</h3>
+                    
                   </div>
                 </div>
               ) : (userRole === "USER") ? (
