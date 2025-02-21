@@ -8,12 +8,12 @@ interface InfoAlertProps {
   duration?: number;
 }
 
-export function InfoAlert({ title, info, duration = 5000 }: InfoAlertProps) {
+export function InfoAlert({ title, info, duration }: InfoAlertProps) {
   const [isVisible, setIsVisible] = useState(true);
   useEffect(() => {
     setIsVisible(true);
 
-    if (duration > 0) {
+    if (duration && duration > 0) {
       const timer = setTimeout(() => {
         setIsVisible(false);
       }, duration);
@@ -25,11 +25,11 @@ export function InfoAlert({ title, info, duration = 5000 }: InfoAlertProps) {
   
   return (
     <div
-      className="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 m-0 w-full"
+      className="bg-blue-50 border border-blue-200 rounded-lg shadow-sm px-6 py-4 mb-6 w-full"
       role="alert"
     >
-      <p className="font-bold">{title}</p>
-      <p className="text-sm">{info}</p>
+      <p className="text-blue-900 font-medium text-sm mb-1">{title}</p>
+      <p className="text-blue-700 text-sm">{info}</p>
     </div>
-  );
+);
 }

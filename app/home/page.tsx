@@ -8,32 +8,23 @@ export default async function Page() {
 
     return (
     <>
-       {/* <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6">
-        Collection Overview
-      </h2>
-      <div className="bg-white shadow-lg rounded-xl p-6">
-        <BookCarousel data={data} />
-      </div>
-    </div> */}
-
     <main className={mainStyle}>
       <div className="container mx-auto px-4 py-12">
         {/* Hero Section */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <div className="space-y-6">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-              My Books
+              About this project
             </h1>
             <div className="prose prose-lg text-gray-600">
               <p>
-                Here is some basic information about my book collection. It may not be very exciting in itself, but it is based on SQL queries against a PostgrSQL database, so it will update when new books are added. The carousel was built using <a className="text-blue-600 underline" href="https://www.npmjs.com/package/react-multi-carousel">react-multi-carousel 2.8.5</a>, which I can heartily recommend (if you like carousels).
+                This carousel displays some basic information about my book collection. It may not be very exciting in itself, but it is based on SQL queries against a PostgreSQL database, so it updates automatically when new books are added. Schema validation is done with <a className="text-blue-600 underline" href="https://zod.dev/">zod</a>. The carousel was built using <a className="text-blue-600 underline" href="https://www.npmjs.com/package/react-multi-carousel">react-multi-carousel 2.8.5</a>, which I heartily recommend.
               </p>
             </div>
           </div>
           <div className="relative h-64 md:h-auto rounded-xl overflow-hidden bg-blue-100">
             <img
-              src="/api/placeholder/600/400"
+              src="/bookshelf.jpg"
               alt="Library collection"
               className="w-full h-full object-cover"
             />
@@ -55,16 +46,16 @@ export default async function Page() {
               The Collection
             </h3>
             <p className="text-blue-800">
-              I'm not wealthy enough to be a very serious book collector, but my research on the early modern period has given me an interest in early printed books. Some of the books here were rescued from a skip (!!), some were picked up in second-hand shops, and quite a few are from auctions/Tradera. The best ones are quite valuable, although I have probably overpaid for a few of them. Values are estimates or purchase prices.
+              I'm not wealthy enough to be a very serious book collector, but my research on the early modern period has given me an interest in early printed books. Some of the books here were rescued from a skip (!!), some were picked up in second-hand shops, and some are from online auctions. Any new books I pick up are added via the frontend (see the add book link above). I intend to look into storing my image files more efficiently in Vercel Blob (at the moment images are linked from a dropbox account, which means they may load slowly).
             </p>
           </div>
           
           <div className="bg-emerald-50 rounded-xl p-8 shadow-sm">
             <h3 className="text-xl font-semibold text-emerald-900 mb-4">
-              New Additions
+              Security
             </h3>
             <p className="text-emerald-800">
-              Any new books I pick up - I haven't been buying much lately - will be added here through the frontend, together with a photo. I intend to look into: 1. Adding multiple photos for each book, and 2. storing my image files more efficiently in Vercel Blob (at the moment I am linking from dropbox, which is why book images may load slowly).
+              I have implemented authentication and authorisation using <a className="text-blue-600 underline" href="https://jose.readthedocs.io/en/latest/">jose</a>. If you'd like to create an account, all that is needed is an email and password. (The email needs to be in a valid format but will not be used for any purpose; it doesn't have to be your actual email address.) Passwords are hashed using <a className="text-blue-600 underline" href="https://www.npmjs.com/package/bcrypt">bcrypt</a> before being saved to the database; sessions currently expire after 7 days. I am looking into adding oauth login via GitHub and Google as well.
             </p>
           </div>
 
@@ -73,18 +64,11 @@ export default async function Page() {
               Layout & Design
             </h3>
             <p className="text-purple-800">
-              I'm fully capable of implementing other people's designs, but I would never pretend to be a designer myself. Most of the general look for this site (but none of the functionality) was AI-generated, although I have also picked up tips from elsewhere too. I am in the process of refactoring the HTML/CSS code generated by Claude.AI to turn it into more readable and reusable React components.
+              I'm capable of implementing other people's designs, but I would never pretend to be a designer myself. Most of the general look for this site (but none of the functionality) was AI-generated, although I have picked up ideas from elsewhere too. I am in the process of refactoring the HTML/CSS code generated by Claude.AI to turn it into more readable and reusable React components.
             </p>
           </div>
         </div>
       </div>
     </main>
-    {/* <h2 className="mb-4 text-xl md:text-2xl">
-        Information about the collection:
-      </h2>
-      <div className="flex grow flex flex-wrap items-center justify-evenly rounded-xl bg-gray-50 p-4 mt-8 mt-auto mx-auto overflow-hidden">
-        <BookCarousel data={data} />
-      </div> */}
-    </>
-)
+  </>)
 }

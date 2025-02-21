@@ -57,9 +57,9 @@ export default async function Page() {
                     <div key={i} className="bg-gray-50 rounded-lg p-4 flex items-center space-x-4">
                       <div className="w-16 h-16 relative">
                         <Image
-                          src={`/photo.jpg`}
-                          alt="Book cover"
-                          width={64}
+                          src={`/bookshelf.jpg`}
+                          alt="Bookshelf"
+                          width={192}
                           height={64}
                           className="rounded-md"
                         />
@@ -85,8 +85,8 @@ export default async function Page() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left column with welcome message and decoration */}
           <div className="hidden md:flex flex-col justify-center p-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">Welcome to the Book Collection</h1>
-            <p className="text-gray-600 mb-8">Join us to explore a carefully curated selection of books.</p>
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">Welcome</h1>
+            <p className="text-gray-600 mb-8">Create an account or log in here. Passwords are hashed before storage using bcrypt (HS256 algorithm).</p>
             
             {/* Decorative Element */}
             <div className="relative h-64 w-full">
@@ -94,9 +94,9 @@ export default async function Page() {
               <div className="absolute inset-0 bg-blue-200 rounded-lg transform rotate-3"></div>
               <div className="absolute inset-0 bg-white rounded-lg shadow-sm flex items-center justify-center">
                 <Image
-                  src="/photo.jpg"
+                  src="/bookshelf.jpg"
                   alt="Decorative book illustration"
-                  width={200}
+                  width={400}
                   height={200}
                   className="rounded-lg"
                 />
@@ -129,33 +129,4 @@ export default async function Page() {
       </div>
     </main>
   );
-
-  // if (userRole === "ADMIN") {
-  //   return (
-  //     <>
-  //     <h2 className={headingStyle}>Hi Eric</h2>
-  //     </>
-  //   )
-  // }
-  // if (userRole === "USER") {
-  //   return (
-  //     <>
-  //     <h2 className={headingStyle}>Hello there.</h2>
-  //     <p>You are currently signed in with standard user access. This means you can have a closer look at individual books in the collection, but you are still not allowed to edit or upload books. Only I get to do that, for obvious reasons.</p>
-  //     </>
-  //   )
-  // }
-  // return (
-  //   <>
-  //   <div className="flex flex-col md:flex-row">
-  //     <Suspense>
-  //     <LoginForm name={"Register"} func={register}/>
-  //     </Suspense>
-
-  //     <Suspense>
-  //       <LoginForm name={"Login"} func={login}/>
-  //     </Suspense>
-  //   </div>
-  //   </>
-  // );
 }
