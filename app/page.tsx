@@ -65,13 +65,6 @@ export default function Page() {
               content={
                 <>
                   <CVLink
-                    title={content[language].link1_title}
-                    text={content[language].link1_text}
-                    link={
-                      "https://scholar.google.com/citations?user=Csr_QDYAAAAJ&hl=en"
-                    }
-                  />
-                  <CVLink
                     title={content[language].link2_title}
                     text={content[language].link2_text}
                     link={"https://github.com/EricPudney"}
@@ -83,6 +76,13 @@ export default function Page() {
                       language === "en"
                         ? "/EricPudneyCV(eng).pdf"
                         : "/EricPudneyCV(sv).pdf"
+                    }
+                  />
+                  <CVLink
+                    title={content[language].link1_title}
+                    text={content[language].link1_text}
+                    link={
+                      "https://scholar.google.com/citations?user=Csr_QDYAAAAJ&hl=en"
                     }
                   />
                 </>
@@ -115,12 +115,12 @@ export default function Page() {
                   <JobOrSchoolDetails
                     title={content[language].ed_t1}
                     institution={`${content[language].ed_sch1} • 2023 - `}
-                    text={content[language].ed_t1}
+                    text={content[language].ed_d1}
                   />
                   <JobOrSchoolDetails
                     title={content[language].ed_t2}
                     institution={`${content[language].ed_sch2} • 2012 - 2017`}
-                    text={content[language].ed_t2}
+                    text={content[language].ed_d2}
                   />
                 </div>
               }

@@ -3,7 +3,6 @@ import BackButton from "@/app/components/BackButton"
 import BookForm from "@/app/components/BookForm"
 import UploadButton from "@/app/components/UploadButton"
 import returnUserRole from "@/app/lib/session";
-import { headingStyle } from "@/app/styles";
 
 
 export default async function Page() {

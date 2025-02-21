@@ -1,7 +1,7 @@
 import BookCarousel from "../components/BookCarousel"
 
 import { summaryData } from "../data/data"
-import { carouselContainer, headingStyle, mainStyle } from "../styles";
+import { mainStyle } from "../styles";
 
 export default async function Page() {
     const data = await summaryData();
