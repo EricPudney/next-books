@@ -1,14 +1,16 @@
 import { login, register } from "@/app/actions/auth";
+import FeaturedBook from "@/app/components/FeaturedBook";
 import { LoginForm } from "@/app/components/LoginForm";
+import { getRandomBooks } from "@/app/data/data";
 import returnUserRole from "@/app/lib/session";
 import Image from "next/image";
 
-import { headingStyle } from "@/app/styles";
 import { Suspense } from "react";
 
 export default async function Page() {
   const userRole = await returnUserRole();
 
+  // generated code from Claude.ai. Only I will see this in the front end so replacing it is not a priority
   if (userRole === "ADMIN") {
     return (
       <main className="min-h-screen pt-20 pb-24 md:pb-6 px-4 bg-gray-50">
@@ -36,7 +38,9 @@ export default async function Page() {
     );
   }
 
+  
   if (userRole === "USER") {
+    const bookData = await getRandomBooks(3);
     return (
       <main className="min-h-screen pt-20 pb-24 md:pb-6 px-4 bg-gray-50">
         <div className="max-w-screen-xl mx-auto">
@@ -46,30 +50,16 @@ export default async function Page() {
               <p className="text-gray-600 leading-relaxed">
                 You are currently signed in with standard user access. This means you can have a closer 
                 look at individual books in the collection, but you are still not allowed to edit or 
-                upload books. Only I get to do that, for obvious reasons.
+                upload books. Only I get to do that, for obvious reasons. Below this are three books from my collection. These are picked at random each time you log in from the database.
               </p>
               
               {/* Featured Books Section */}
               <div className="mt-8">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Featured Books</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="bg-gray-50 rounded-lg p-4 flex items-center space-x-4">
-                      <div className="w-16 h-16 relative">
-                        <Image
-                          src={`/bookshelf.jpg`}
-                          alt="Bookshelf"
-                          width={192}
-                          height={64}
-                          className="rounded-md"
-                        />
-                      </div>
-                      <div>
-                        <h4 className="font-medium text-gray-900">Book Title {i}</h4>
-                        <p className="text-sm text-gray-500">Author Name</p>
-                      </div>
-                    </div>
-                  ))}
+                  {bookData.map((book) => {
+                    return <FeaturedBook key={book.id} title={book.title} text={book.notes} link={book.image} />
+                  })}
                 </div>
               </div>
             </div>

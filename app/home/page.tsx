@@ -28,6 +28,8 @@ export default async function Page() {
               src="/bookshelf.jpg"
               alt="Library collection"
               className="w-full h-full object-cover"
+              width={500}
+              height={500}
             />
           </div>
         </div>

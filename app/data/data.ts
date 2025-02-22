@@ -3,6 +3,7 @@ import { Book } from "./definitions";
 import { unstable_noStore as noStore } from 'next/cache';
 
 
+// this needs to be more modular
 export async function fetchBooks(filters: {[key: string]: string | undefined}) {
     try {
       const data = await sql<Book>`
@@ -83,6 +84,23 @@ export async function fetchBooks(filters: {[key: string]: string | undefined}) {
       const book = data.rows[0];
       return book;
     } catch (error) {
+      console.error('Database Error:', error);
+      throw new Error('Failed to fetch book.');
+    }
+  }
+
+  export async function getRandomBooks(number: number) {
+    noStore()
+    try {
+      const data = await sql<Book>`
+      SELECT * FROM books
+      ORDER BY RANDOM()
+      LIMIT ${number}      
+      `
+      const books = data.rows;
+      return books;
+    }
+    catch (error) {
       console.error('Database Error:', error);
       throw new Error('Failed to fetch book.');
     }
