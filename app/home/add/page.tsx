@@ -32,13 +32,13 @@ return (
               ) : (userRole === "USER") ? (
                 <div className="bg-yellow-50 rounded-lg p-4">
                   <p className="text-sm text-yellow-800">
-                    I can't let you add or modify books in the collection. That's why the upload button is greyed out. However, all books in this collection have been added via this form, so I can promise you that everything works as it should! Since you are logged in as a user, you can look at individual books in the collection as well as the list of books via the booklist page. This page won't work for you, though, since only I have admin access.
+                    This form is for adding new books to the database; since you are not logged in as me (I am the only user with admin rights) the upload button is greyed out. However, all books in this collection have been added via this form, so I can promise you that everything works as it should! Since you are logged in as a user, you can look at individual books in the collection as well as the list of books via the booklist page.
                   </p>
                 </div>
               ) : (
                 <div className="bg-yellow-50 rounded-lg p-4">
                   <p className="text-sm text-yellow-800">
-                    I can't let you add or modify books in the collection. That's why the upload button is greyed out. However, all books in this collection have been added via this form, so I can promise you that everything works as it should! You will need to create an account or log in in order to look individual items in the collection, but even without logging in, you can look at the booklist page and check that the filters work. Filtering and rendering of the list is done on the server side in this app.
+                  This form is for adding new books to the database; since you are not logged in as me the upload button is greyed out. However, all books in this collection have been added via this form, so I can promise you that everything works as it should! You will need to create an account or log in in order to look individual items in the collection, but even without logging in, you can look at the booklist page and check that the filters work. Filtering and rendering of the list is done on the server side in this app.
                   </p>
                 </div>)}
 

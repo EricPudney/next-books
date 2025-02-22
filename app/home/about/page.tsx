@@ -1,5 +1,3 @@
-// import PdfViewer from "@/app/components/PdfViewer";
-// import { headingStyle } from "@/app/styles";
 'use client';
 
 import { useRouter } from 'next/navigation';
@@ -22,11 +20,6 @@ export default function Page() {
     const handleCancel = () => {
       router.back();
     };
-    
-
-
-
-
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
@@ -44,7 +37,7 @@ export default function Page() {
         </h2>
         
         <p className="text-gray-600">
-          Are you sure you don't want to look at any more books?
+          Are you sure you want to return to the CV page?
         </p>
 
         <div className="flex space-x-4 pt-4">
@@ -65,6 +58,3 @@ export default function Page() {
     </div>
   );
 }
-            {/* <h2 className={headingStyle}>About me</h2>
-            <PdfViewer/> */}
-       

@@ -1,7 +1,6 @@
 import { fetchBooks } from "app/data/data";
 import Filters from "app/components/Filters";
 import BookListItem from "@/app/components/BookListItem";
-import { carouselContainer, evenlySpacedRowCol, headingStyle } from "@/app/styles";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 
 
@@ -9,31 +8,10 @@ export default async function ItemsPage({ searchParams }: {searchParams: Promise
   const params = await searchParams;
   const books = await fetchBooks(params);
 
-  // return (
-  //   <>
-  //   <h2 className={headingStyle}>Books</h2>
-  //     <div className={evenlySpacedRowCol}>
-  //       <Filters />
-  //     </div>
-  //     {!books || books.length === 0 ? (
-  //       <p>No books found.</p>
-  //     ) : (
-  //       <>
-  //         <div className={evenlySpacedRowCol}>
-  //           <div className={carouselContainer}>
-  //             {books.map((book, i) => (
-  //               <BookListItem book={book} key={i} />
-  //             ))}
-  //           </div>
-  //         </div>
-  //       </>
-  //     )}
-  //     </>
-  // );
   return (
     <main className="min-h-screen pt-20 pb-24 md:pb-6 px-4 bg-gray-50">
       <div className="max-w-screen-xl mx-auto">
-        {/* Header Section */}
+
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4 md:mb-0">Book Collection</h2>
           <Filters />
