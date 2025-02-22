@@ -2,6 +2,7 @@ import BookCarousel from "../components/BookCarousel"
 
 import { summaryData } from "../data/data"
 import { mainStyle } from "../styles";
+import Image from 'next/image';
 
 export default async function Page() {
     const data = await summaryData();
@@ -23,7 +24,7 @@ export default async function Page() {
             </div>
           </div>
           <div className="relative h-64 md:h-auto rounded-xl overflow-hidden bg-blue-100">
-            <img
+            <Image
               src="/bookshelf.jpg"
               alt="Library collection"
               className="w-full h-full object-cover"
