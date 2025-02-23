@@ -4,6 +4,7 @@ import {
   ListBulletIcon,
   PlusCircleIcon,
   QuestionMarkCircleIcon,
+  ArrowLeftStartOnRectangleIcon
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import LogoutButton from '../buttons/LogoutButton';
@@ -18,7 +19,7 @@ export default async function Navbar() {
     { href: '/home', icon: HomeIcon, label: 'Home' },
     { href: '/home/booklist', icon: ListBulletIcon, label: 'Booklist' },
     { href: '/home/add', icon: PlusCircleIcon, label: 'Add book' },
-    { href: '/home/about', icon: QuestionMarkCircleIcon, label: 'About me' },
+    { href: '/home/askAI', icon: QuestionMarkCircleIcon, label: 'Ask AI' },
   ];
 
   return (
@@ -38,7 +39,14 @@ export default async function Navbar() {
             ))}
           </div>
 
-          <div className="flex items-center justify-center">
+          <div className="flex items-center space-x-4">
+          <Link
+              href="/home/exit"
+              className="flex items-center space-x-1 px-3 py-2 rounded-md text-blue-600 hover:bg-blue-50 border border-blue-200"
+            >
+              <ArrowLeftStartOnRectangleIcon className="h-6 w-6" />
+              <span className="hidden md:block text-sm font-medium">Return to CV</span>
+            </Link>
             {userRole === "USER" || userRole === "ADMIN" ? (
               <LogoutButton deleteSession={deleteSession} />
             ) : (
@@ -50,4 +58,3 @@ export default async function Navbar() {
     </nav>
   );
 };
-
