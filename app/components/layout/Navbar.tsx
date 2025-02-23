@@ -6,10 +6,10 @@ import {
   QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import LogoutButton from './LogoutButton';
-import LoginButton from './LoginButton';
-import returnUserRole, { deleteSession } from '../lib/session';
-import { linkIconStyle, linkStyle, linkTextStyle } from '../styles';
+import LogoutButton from '../buttons/LogoutButton';
+import LoginButton from '../buttons/LoginButton';
+import returnUserRole, { deleteSession } from '../../lib/session';
+import { linkIconStyle, linkStyle, linkTextStyle } from '../../styles';
 
 const Navbar = async () => {
   const userRole = await returnUserRole();

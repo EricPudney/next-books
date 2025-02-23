@@ -1,7 +1,7 @@
 "use client";
 
 import { LockClosedIcon } from "@heroicons/react/24/solid";
-import { linkIconStyle, linkStyle, linkTextStyle } from "../styles";
+import { linkIconStyle, linkStyle, linkTextStyle } from "../../styles";
 import Link from "next/link";
 
 export default function LoginButton() {

@@ -1,6 +1,6 @@
 import { editBook } from "@/app/actions/actions";
-import UploadButton from "@/app/components/UploadButton";
-import Backbutton from "@/app/components/BackButton";
+import UploadButton from "@/app/components/buttons/UploadButton";
+import Backbutton from "@/app/components/buttons/BackButton";
 import { fetchBook } from "@/app/data/data";
 import BookForm from "@/app/components/BookForm";
 

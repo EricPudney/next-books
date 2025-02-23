@@ -1,7 +1,7 @@
 import { addBook } from "@/app/actions/actions"
-import BackButton from "@/app/components/BackButton"
+import BackButton from "@/app/components/buttons/BackButton"
 import BookForm from "@/app/components/BookForm"
-import UploadButton from "@/app/components/UploadButton"
+import UploadButton from "@/app/components/buttons/UploadButton"
 import returnUserRole from "@/app/lib/session";
 
 
@@ -12,7 +12,6 @@ return (
     <main className="pt-20 pb-24 md:pb-6 px-4 bg-gray-50 overflow-hidden">
       <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-sm p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-4">

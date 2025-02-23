@@ -1,6 +1,6 @@
 'use client'
 
-import { Book } from "../data/definitions";
+import { Book } from "../../data/definitions";
 import { PencilSquareIcon } from "@heroicons/react/24/solid"
 import { useRouter } from "next/navigation"
 

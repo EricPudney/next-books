@@ -1,6 +1,6 @@
-import Backbutton from "@/app/components/BackButton";
+import Backbutton from "@/app/components/buttons/BackButton";
 import Bookinfo from "@/app/components/Bookinfo"
-import EditButton from "@/app/components/EditButton";
+import EditButton from "@/app/components/buttons/EditButton";
 import { InfoAlert } from "@/app/components/InfoAlert";
 import { fetchBook } from "@/app/data/data";
 import returnUserRole from "@/app/lib/session";
