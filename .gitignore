@@ -39,3 +39,5 @@ next-env.d.ts
 # ai stuff
 /backend/*
 !backend/requirements.txt 
+
+.vercel
