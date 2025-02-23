@@ -6,7 +6,7 @@ import {
   DateFilterValue,
   SubjectFilterValue,
   ValueFilterValue,
-} from "../data/definitions";
+} from "../../data/definitions";
 
 export default function Filters() {
   const router = useRouter();

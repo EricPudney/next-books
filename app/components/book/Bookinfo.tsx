@@ -1,4 +1,4 @@
-import { Book } from "../data/definitions";
+import { Book } from "../../data/definitions";
 import ToggleImage from "./ToggleImage";
 
 export default async function Bookinfo({

@@ -1,5 +1,5 @@
 import Backbutton from "@/app/components/buttons/BackButton";
-import Bookinfo from "@/app/components/Bookinfo"
+import Bookinfo from "@/app/components/book/Bookinfo"
 import EditButton from "@/app/components/buttons/EditButton";
 import { InfoAlert } from "@/app/components/InfoAlert";
 import { fetchBook } from "@/app/data/data";

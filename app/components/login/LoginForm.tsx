@@ -3,7 +3,6 @@
 import { FormState } from "../actions/auth";
 import { useActionState } from "react";
 import { InfoAlert } from "./InfoAlert";
-import { greenButtonStyle, headingStyle, inputStyle } from "../styles";
 
 export function LoginForm({
   name,

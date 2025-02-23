@@ -1,6 +1,6 @@
 import { fetchBooks } from "app/data/data";
-import Filters from "app/components/Filters";
-import BookListItem from "@/app/components/BookListItem";
+import Filters from "@/app/components/booklist/Filters";
+import BookListItem from "@/app/components/booklist/BookListItem";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 
 

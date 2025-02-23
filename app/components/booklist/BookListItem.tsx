@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Book } from "../data/definitions";
+import { Book } from "../../data/definitions";
 import { BookOpenIcon, CalendarIcon, CurrencyDollarIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 

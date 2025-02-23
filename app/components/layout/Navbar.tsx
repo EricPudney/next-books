@@ -11,7 +11,7 @@ import LoginButton from '../buttons/LoginButton';
 import returnUserRole, { deleteSession } from '../../lib/session';
 import { linkIconStyle, linkStyle, linkTextStyle } from '../../styles';
 
-const Navbar = async () => {
+export default async function Navbar() {
   const userRole = await returnUserRole();
 
   const navItems = [
@@ -51,4 +51,3 @@ const Navbar = async () => {
   );
 };
 
-export default Navbar;

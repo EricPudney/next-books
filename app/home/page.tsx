@@ -1,4 +1,4 @@
-import BookCarousel from "../components/BookCarousel"
+import BookCarousel from "../components/home/BookCarousel"
 
 import { summaryData } from "../data/data"
 import { mainStyle } from "../styles";
