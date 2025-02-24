@@ -18,7 +18,7 @@ class ChatRequest(BaseModel):
     message: str
 
 # seems stupid to divide this up but this has to return a ChatCompletion object which the FE doesn't like - temp fix
-@app.post("/chat")
+@app.post("/home/askAI")
 async def chat(request: ChatRequest):
     try:
         response = await getResponse(request)
