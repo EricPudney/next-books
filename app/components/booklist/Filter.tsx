@@ -1,6 +1,6 @@
 "use client";
 
-import { FilterProps } from "../data/definitions";
+import { FilterProps } from "../../data/definitions";
 
 export default function Filter(props: FilterProps) {
 

@@ -13,19 +13,6 @@ app = FastAPI()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-@app.get("/test-api")
-async def test_openai():
-    try:
-        response = openai.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{"role": "user", "content": "Hello!"}]
-        )
-        
-        return response
-    except Exception as e:
-        print("OpenAI API Error:", str(e))
-        raise HTTPException(status_code=500, detail=f"OpenAI API Error: {str(e)}")
-
 # Define request model
 class ChatRequest(BaseModel):
     message: str
