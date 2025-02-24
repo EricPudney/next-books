@@ -1,6 +1,6 @@
 "use client";
 
-import { FormState } from "../actions/auth";
+import { FormState } from "../../actions/auth";
 import { useActionState } from "react";
 import { InfoAlert } from "../InfoAlert";
 
