@@ -2,7 +2,7 @@
 
 import { FormState } from "../actions/auth";
 import { useActionState } from "react";
-import { InfoAlert } from "./InfoAlert";
+import { InfoAlert } from "../InfoAlert";
 
 export function LoginForm({
   name,
