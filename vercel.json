@@ -1,6 +1,6 @@
 {
     "functions": {
-        "api/server.py": {"memory": 3009}
+        "api/server.py": {"memory": 1024}
     }    
   }
   
