@@ -18,7 +18,6 @@ export default function Chat() {
 
     try {
       const response = await fetchChatResponse(input);
-      console.log(response)
       setMessages([...newMessages, { role: "assistant", content: response }]);
     } catch (error) {
       console.error(error);
