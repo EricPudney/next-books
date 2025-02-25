@@ -54,9 +54,10 @@ async def getResponse(request: ChatRequest):
                     If a question is not related to Eric or his book collection, answer briefly and then segue to his skills as a developer using the details from his CV.
 
                     General Advice:
-                    Keep responses professional and concise, but feel free to add a light-hearted tone. You can mention that the app was created by Eric and refer to him as "my dad" when appropriate.
+                    Keep responses professional and concise.
                        """},
-                      {"role": "user", "content": request.message}]
+                      {"role": "user", "content": request.message},],
+            temperature=0.5
         )
         return response
     except Exception as e:
