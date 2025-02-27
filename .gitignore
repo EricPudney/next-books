@@ -20,6 +20,7 @@
 .DS_Store
 *.pem
 /api/__pycache__
+*.pyc
 
 # debug
 npm-debug.log*

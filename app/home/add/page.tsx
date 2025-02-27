@@ -2,7 +2,7 @@ import { addBook } from "@/app/actions/actions"
 import BackButton from "@/app/components/buttons/BackButton"
 import BookForm from "@/app/components/BookForm"
 import UploadButton from "@/app/components/buttons/UploadButton"
-import returnUserRole from "@/app/lib/session";
+import { returnUserRole } from "@/app/lib/session";
 
 
 export default async function Page() {
