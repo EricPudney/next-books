@@ -9,6 +9,7 @@ import CVSkills from "./components/CV/CVSkills";
 import CVHeader from "./components/CV/CVHeader";
 import PortfolioBox from "./components/CV/PortfolioBox";
 import JobOrSchoolDetails from "./components/CV/JobOrSchoolDetails";
+import LanguageSwitcher from "./components/LanguageSwitcher";
 
 export type Language = "en" | "se";
 export default function Page() {
@@ -16,25 +17,7 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Language Switcher */}
-      <div className="fixed top-4 right-4 flex gap-2">
-        <button
-          onClick={() => setLanguage("en")}
-          className={`p-1 rounded-lg transition-transform hover:scale-110 ${
-            language === "en" ? "ring-2 ring-blue-500" : ""
-          }`}
-        >
-          <span className="fi fi-gb"></span>
-        </button>
-        <button
-          onClick={() => setLanguage("se")}
-          className={`p-1 rounded-lg transition-transform hover:scale-110 ${
-            language === "se" ? "ring-2 ring-blue-500" : ""
-          }`}
-        >
-          <span className="fi fi-se"></span>
-        </button>
-      </div>
+      <LanguageSwitcher lang={language} setLang={setLanguage} />
 
       <CVHeader title={content[language].title} bio={content[language].bio} />
 
@@ -69,21 +52,36 @@ export default function Page() {
                     text={content[language].link2_text}
                     link={"https://github.com/EricPudney"}
                   />
-                  <CVLink
-                    title={content[language].link3_title}
-                    text={content[language].link3_text}
-                    link={
-                      language === "en"
-                        ? "/EricPudneyCV(eng).pdf"
-                        : "/EricPudneyCV(sv).pdf"
-                    }
+                  <CVLink 
+                    title={content[language].link4_title}
+                    text={content[language].link4_text}
+                    link={"https://certificates.cs50.io/f7aec661-249d-44c9-9768-2b870ad53275.pdf?size=letter"}
                   />
-                  <CVLink
-                    title={content[language].link1_title}
-                    text={content[language].link1_text}
-                    link={
-                      "https://scholar.google.com/citations?user=Csr_QDYAAAAJ&hl=en"
-                    }
+                    <CVLink
+                      title={content[language].link3_title}
+                      text={content[language].link3_text}
+                      link={
+                        language === "en"
+                          ? "/EricPudneyCV(eng).pdf"
+                          : "/EricPudneyCV(sv).pdf"
+                      }
+                    />
+                    <CVLink
+                      title={content[language].link1_title}
+                      text={content[language].link1_text}
+                      link={
+                        "https://scholar.google.com/citations?user=Csr_QDYAAAAJ&hl=en"
+                      }
+                    />
+                  <CVLink 
+                    title={content[language].link5_title}
+                    text={content[language].link5_text}
+                    link={"https://urplay.se/program/182987-ur-samtiden-humanist-och-teologdagarna-2014-sanningen-om-shakespeare"}
+                  />
+                  <CVLink 
+                    title={content[language].link6_title}
+                    text={content[language].link6_text}
+                    link={"https://soundcloud.com/ht-samtal/ht-samtal-90-eric-pudney"}
                   />
                 </>
               }
@@ -96,13 +94,23 @@ export default function Page() {
                 <div className="space-y-6">
                   <JobOrSchoolDetails
                     title={content[language].jt1}
-                    institution="Studentlitteratur • 2025 -"
+                    institution={content[language].emp1}
                     text={content[language].jd1}
                   />
                   <JobOrSchoolDetails
                     title={content[language].jt2}
-                    institution={`${content[language].emp2} • 2017 - 2023`}
+                    institution={content[language].emp2}
                     text={content[language].jd2}
+                  />
+                  <JobOrSchoolDetails
+                    title={content[language].jt3}
+                    institution={content[language].emp3}
+                    text={content[language].jd3}
+                  />
+                  <JobOrSchoolDetails
+                    title={content[language].jt4}
+                    institution={content[language].emp4}
+                    text={content[language].jd4}
                   />
                 </div>
               }
@@ -114,13 +122,21 @@ export default function Page() {
                 <div className="space-y-6">
                   <JobOrSchoolDetails
                     title={content[language].ed_t1}
-                    institution={`${content[language].ed_sch1} • 2023 - `}
+                    institution={content[language].ed_sch1}
                     text={content[language].ed_d1}
                   />
                   <JobOrSchoolDetails
                     title={content[language].ed_t2}
-                    institution={`${content[language].ed_sch2} • 2012 - 2017`}
+                    institution={content[language].ed_sch2}
                     text={content[language].ed_d2}
+                  />
+                  <JobOrSchoolDetails
+                    title={content[language].ed_t3}
+                    institution={content[language].ed_sch3}
+                  />
+                  <JobOrSchoolDetails
+                    title={content[language].ed_t4}
+                    institution={content[language].ed_sch4}
                   />
                 </div>
               }

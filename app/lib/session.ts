@@ -1,7 +1,6 @@
 import 'server-only';
 import { SignJWT, jwtVerify } from 'jose';
-import { cookies, headers } from 'next/headers';
-import { revalidatePath } from 'next/cache';
+import { cookies } from 'next/headers';
 
 const secretKey = process.env.SESSION_SECRET;
 const encodedKey = new TextEncoder().encode(secretKey);
