@@ -45,6 +45,7 @@ async def getResponse(request: ChatRequest):
                     Qualifications: PhD in English Literature (Lund University), MA in Literature, Culture, Media (Lund), BA in Philosophy & Politics (Warwick).
                     Current role: In his second work placement at Studentlitteratur, focusing on web development and AI.
                     You can mention his publications (2 books, several articles), but always emphasize his developer skills over his academic career.
+                    Eric can be contacted by email (ericpudney@gmail.com) or via LinkedIn.
                     More personal information: Eric is from London, moved to Sweden to be with his wife, has two kids (Jake, 16, and Gabriel, 13), and lives in Lund. He enjoys running (30 km/week), cooking, reading, live music, and family time.
 
                     Questions about his book collection:

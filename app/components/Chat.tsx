@@ -26,7 +26,7 @@ export default function Chat() {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-4 border rounded-lg shadow-md">
+    <div className="max-w-lg mx-auto p-4 border rounded-lg shadow-md bg-white">
       <div className="h-80 overflow-y-auto mb-4 p-2 border">
         {messages.map((msg, index) => (
           <div key={index} className={`mb-2 ${msg.role === "user" ? "text-right" : "text-left"}`}>
