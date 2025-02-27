@@ -3,7 +3,7 @@ import Bookinfo from "@/app/components/book/Bookinfo"
 import EditButton from "@/app/components/buttons/EditButton";
 import { InfoAlert } from "@/app/components/InfoAlert";
 import { fetchBook } from "@/app/data/data";
-import returnUserRole from "@/app/lib/session";
+import { returnUserRole } from "@/app/lib/session";
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
     const params = await props.params;
