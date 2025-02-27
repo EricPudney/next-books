@@ -50,7 +50,7 @@ export default async function Page() {
               <p className="text-gray-600 leading-relaxed">
                 You are currently signed in with standard user access. This means you can have a closer 
                 look at individual books in the collection, but you are still not allowed to edit or 
-                upload books. Only I get to do that, for obvious reasons. Below this are three books from my collection. These are picked at random each time you log in from the database.
+                upload books - only I get to do that, for obvious reasons. Below this are three books from my collection. These are picked at random from the database by a server action each time you log in.
               </p>
               
               {/* Featured Books Section */}
@@ -76,7 +76,7 @@ export default async function Page() {
           {/* Left column with welcome message and decoration */}
           <div className="hidden md:flex flex-col justify-center p-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-4">Welcome</h1>
-            <p className="text-gray-600 mb-8">Create an account or log in here. Passwords are hashed before storage using bcrypt (HS256 algorithm).</p>
+            <p className="text-gray-600 mb-8">Create an account or log in here. Passwords are salted and hashed before storage using bcrypt (HS256 algorithm).</p>
             
             {/* Decorative Element */}
             <div className="relative h-64 w-full">
