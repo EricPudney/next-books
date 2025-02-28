@@ -10,8 +10,8 @@ export default async function Page() {
     return (
     <>
     <main className={mainStyle}>
-      <div className="container mx-auto px-4 py-12">
-        {/* Hero Section */}
+    <div className="max-w-screen-xl mx-auto mt-4">
+    {/* Hero Section */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <div className="space-y-6">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
@@ -19,7 +19,7 @@ export default async function Page() {
             </h1>
             <div className="prose prose-lg text-gray-600">
               <p>
-              This carousel displays some basic information about my book collection ND automatically updates whenever new books are added to the database. The data is fetched using SQL queries executed by a server action against a PostgreSQL database. <a className="text-blue-600 underline" href="https://zod.dev/">Zod</a> is used for schema validation to ensure data integrity. The carousel itself is built with <a className="text-blue-600 underline" href="https://www.npmjs.com/package/react-multi-carousel">react-multi-carousel</a>, which I've found to be an excellent, easy-to-use library.
+              This project - which is still under development - began as a way for me to practice using Next.js and has turned into a portfolio site as I am starting to look for jobs. It presents most of my collection of rare, antique and collectable books. You can look at the books using the 'booklist' link, although you will need to create an account to look at individual books. I have recently added a chatbot which you can talk to via the 'Ask AI' link, although it has an (intentionally) one-track mind.
               </p>
             </div>
           </div>
@@ -49,7 +49,7 @@ export default async function Page() {
               The Collection
             </h3>
             <p className="text-blue-800">
-              I am not wealthy enough to be a very serious book collector, but my research on the early modern period has given me an interest in early printed books. Some of the books here were rescued from a skip (!!), some were picked up in second-hand shops, and some are from online auctions. Any new books I pick up are added via the frontend (see the add book link above). Images for the books are currently linked from a dropbox account, but I plan to migrate them to <a className="text-blue-600 underline" href="https://vercel.com/docs/storage/vercel-blob">Vercel Blob</a> for more efficient storage, faster retrieval, and better integration with the rest of the app.
+            The carousel above automatically updates whenever new books are added to the database. The data is fetched using SQL queries executed by a server action against a PostgreSQL database. <a className="text-blue-600 underline" href="https://zod.dev/">Zod</a> is used for schema validation to ensure data integrity. The carousel itself is built with <a className="text-blue-600 underline" href="https://www.npmjs.com/package/react-multi-carousel">react-multi-carousel</a>, which I've found to be an excellent, easy-to-use library. Images for the books are currently linked from a dropbox account, but I plan to migrate them to <a className="text-blue-600 underline" href="https://vercel.com/docs/storage/vercel-blob">Vercel Blob</a> for more efficient storage, faster retrieval, and better integration with the rest of the app.
             </p>
           </div>
           

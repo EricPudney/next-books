@@ -2,6 +2,7 @@ import { fetchBooks } from "app/data/data";
 import Filters from "@/app/components/booklist/Filters";
 import BookListItem from "@/app/components/booklist/BookListItem";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
+import { mainStyle } from "@/app/styles";
 
 
 export default async function ItemsPage({ searchParams }: {searchParams: Promise<any>}) {
@@ -9,7 +10,7 @@ export default async function ItemsPage({ searchParams }: {searchParams: Promise
   const books = await fetchBooks(params);
 
   return (
-    <main className="min-h-screen pt-20 pb-24 md:pb-6 px-4 bg-gray-50">
+    <main className={mainStyle}>
       <div className="max-w-screen-xl mx-auto">
 
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
