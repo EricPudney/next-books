@@ -57,7 +57,7 @@ export default function Chat() {
           <div className="space-y-4">
             <div>
               <p className="text-emerald-800 text-sm">
-                I have implemented a chatbot using the GPT4o mini model via a Python backend. A system prompt guides AI responses, which could be given much more depth by implementing retrieval-augmented generation (RAG). The barrier to doing this is that I do not have enough data about myself and my book collection. A future version of this app may feature a better-informed bot.
+                I have implemented a chatbot using the GPT4o mini model via a Python backend. A system prompt guides AI responses, which could be given much more depth by implementing retrieval-augmented generation (RAG). The barrier to doing this is that I do not have enough data about myself and my book collection. A future version of this app may feature a better-informed bot. Questions and answers are not currently saved anywhere.
               </p>
             </div>
           </div>
