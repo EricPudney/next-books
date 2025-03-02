@@ -14,7 +14,7 @@ return (
       <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-lg shadow-md p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-4">
                 {userRole === "ADMIN" ? "Add New Book" : "Sorry..."}
               </h2>
@@ -46,7 +46,7 @@ return (
           </div>
 
           <div className="lg:col-span-2">
-            <form name="addBook" action={addBook} className="bg-white rounded-lg shadow-sm p-6">
+            <form name="addBook" action={addBook} className="bg-white rounded-lg shadow-md p-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <BookForm book={null} />
               </div>

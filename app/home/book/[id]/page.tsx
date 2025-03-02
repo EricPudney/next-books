@@ -15,7 +15,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     if (userRole === "ADMIN" || userRole === "USER") {
         return (
             <main className="flex max-h-min flex-col items-center justify-between xs:p-12 lg:p-24">
-                <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
+                <div className="flex grow flex-col justify-between bg-white rounded-xl p-4">
                     <Bookinfo book={currentBook} />
                 <div className="flex items-center justify-center space-x-[35%]">
                     <Backbutton />

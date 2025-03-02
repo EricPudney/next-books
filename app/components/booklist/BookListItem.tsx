@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function BookListItem({book}: {book: Book}) {
 
   return (
-    <div className="group bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
+    <div className="group bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200">
       <div className="aspect-[3/4] relative overflow-hidden rounded-t-lg bg-gray-100">
         {book.image ? (
           <Image
