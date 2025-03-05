@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react"
+import { ChangeEvent, Dispatch, SetStateAction } from "react"
 
 export type Book = {
     id: number,
@@ -17,15 +17,10 @@ export type Book = {
 export type FilterProps = {
     name: string,
     options: string[],
-    onChange: (e: ChangeEvent<HTMLSelectElement>) => void
+    paramName: string,
+    type: string,
+    setType: Dispatch<SetStateAction<string>>
 }
-
-// export type FilterProps = {
-//     name: string;
-//     options: string[];
-//     onChange: (value: string) => void;
-//   }
-  
 
 export const DateFilterValue: string[] = 
     ['1500s',

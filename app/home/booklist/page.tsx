@@ -5,7 +5,7 @@ import { BookOpenIcon } from "@heroicons/react/24/outline";
 import { mainStyle } from "@/app/styles";
 
 
-export default async function ItemsPage({ searchParams }: {searchParams: Promise<any>}) {
+export default async function BookListPage({ searchParams }: {searchParams: Promise<any>}) {
   const params = await searchParams;
   const books = await fetchBooks(params);
 
@@ -23,7 +23,7 @@ export default async function ItemsPage({ searchParams }: {searchParams: Promise
             <div className="max-w-md mx-auto">
               <BookOpenIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
               <h3 className="text-lg font-medium text-gray-900 mb-2">No books found</h3>
-              <p className="text-gray-500">Try adjusting your filters or search criteria.</p>
+              <p className="text-gray-500">Try adjusting the filters.</p>
             </div>
           </div>
         ) : (
