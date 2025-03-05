@@ -86,7 +86,7 @@ export default function Filters() {
             setType={setSubject}
           />
           <button type="button"
-          className="col-start-3 justify-self-end px-3 py-1.5 text-xs font-medium text-red-700 bg-red-50 border border-red-200 rounded-md hover:bg-red-100 focus:outline-none focus:ring-1 focus:ring-red-300 self-center" onClick={()=>{
+          className="md:col-start-3 justify-self-end px-3 py-1.5 text-xs font-medium text-red-700 bg-red-50 border border-red-200 rounded-md hover:bg-red-100 focus:outline-none focus:ring-1 focus:ring-red-300 self-center" onClick={()=>{
             setDate("")
             setValue("")
             setSubject("")
