@@ -2,7 +2,7 @@
 
 import { FormState } from "../../actions/auth";
 import { useActionState } from "react";
-import { InfoAlert } from "../InfoAlert";
+import InfoAlert from "../InfoAlert";
 
 export function LoginForm({
   name,
@@ -14,6 +14,7 @@ export function LoginForm({
   const [state, action, pending] = useActionState(func, undefined);
   
   return (
+    <>
     <div className="space-y-6">
       <h2 className="text-2xl font-bold text-gray-900">{name}</h2>
       <form action={action} className="space-y-4">
@@ -72,68 +73,13 @@ export function LoginForm({
           )}
         </button>
         
-        {state?.message && (
-          <div className="mt-4">
-            <InfoAlert title={state.message.title} info={state.message.info} />
-          </div>
-        )}
       </form>
     </div>
+        {state?.message && (
+          <div className="mt-4">
+            <InfoAlert title={state.message.title} info={state.message.info} type={"error"} />
+          </div>
+        )}
+    </>
   ); 
-  
-  
-  
-  
-  
-  
-  
-  // return (
-  //   <>
-  //     <div className="flex flex-col flex-grow w-full min-w-0 md:mr-12">
-  //       <h2 className={headingStyle}>{name}</h2>
-  //       <form action={action}>
-  //         <div>
-  //           <label htmlFor="email">Email</label>
-  //           <input
-  //             className={inputStyle}
-  //             id="email"
-  //             name="email"
-  //             type="email"
-  //             placeholder="Email"
-  //           />
-  //         </div>
-  //         {state?.errors?.email && <p>{state.errors.email}</p>}
-
-  //         <div>
-  //           <label htmlFor="password">Password</label>
-  //           <input
-  //             className={inputStyle}
-  //             id="password"
-  //             name="password"
-  //             type="password"
-  //           />
-  //         </div>
-  //         {state?.errors?.password && (
-  //           <div>
-  //             <p>Password must:</p>
-  //             <ul>
-  //               {state.errors.password.map((error: string) => (
-  //                 <li key={error}>- {error}</li>
-  //               ))}
-  //             </ul>
-  //           </div>
-  //         )}
-  //         <button className={greenButtonStyle} type="submit">
-  //           {name}
-  //         </button>
-  //         {pending && <p>...working...</p>}
-  //       </form>
-  //     <div className="flex flex-row items-center">
-  //         {state?.message && (
-  //             <InfoAlert title={state.message.title} info={state.message.info} />
-  //         )}
-  //     </div>
-  //     </div>
-  //   </>
-  // );
 }

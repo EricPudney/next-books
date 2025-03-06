@@ -6,9 +6,10 @@ interface InfoAlertProps {
   title: string;
   info: string;
   duration?: number;
+  type: "error" | "info";
 }
 
-export function InfoAlert({ title, info, duration }: InfoAlertProps) {
+export default function InfoAlert({ title, info, duration, type }: InfoAlertProps) {
   const [isVisible, setIsVisible] = useState(true);
   useEffect(() => {
     setIsVisible(true);
@@ -22,14 +23,19 @@ export function InfoAlert({ title, info, duration }: InfoAlertProps) {
   }, [title, info, duration]);
 
   if (!isVisible) return null;
+
+  const divClass = type == "error" ? "bg-red-50 border border-red-200 rounded-lg shadow-sm px-6 py-4 mb-6 w-full" : "bg-blue-50 border border-blue-200 rounded-lg shadow-sm px-6 py-4 mb-6 w-full mt-32"
+  const titleStyle = type == "error" ? "text-red-900 font-medium text-sm mb-1" : "text-blue-900 font-medium text-sm mb-1"
+  const textStyle = type == "error" ? "text-red-700 text-sm" : "text-blue-700 text-sm"
   
   return (
     <div
-      className="bg-blue-50 border border-blue-200 rounded-lg shadow-sm px-6 py-4 mb-6 w-full"
+      className={divClass}
       role="alert"
     >
-      <p className="text-blue-900 font-medium text-sm mb-1">{title}</p>
-      <p className="text-blue-700 text-sm">{info}</p>
+      <p className={titleStyle}>{title}</p>
+      <p className={textStyle}>{info}</p>
     </div>
 );
 }
+
