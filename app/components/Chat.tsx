@@ -7,8 +7,6 @@ export default function Chat() {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
   const [input, setInput] = useState("");
 
-
-  // This async stuff shouldn't be here - needs moving
   const sendMessage = async () => {
     if (!input.trim()) return;
     

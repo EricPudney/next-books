@@ -75,7 +75,7 @@ export default async function Page() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left column with welcome message and decoration */}
           <div className="hidden md:flex flex-col justify-center p-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">Welcome</h1>
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">Welcome</h1>
             <p className="text-gray-600 mb-8">Create an account or log in here. Passwords are salted and hashed before storage using bcrypt (HS256 algorithm).</p>
             
             {/* Decorative Element */}
