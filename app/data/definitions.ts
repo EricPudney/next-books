@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react"
+import { Dispatch, SetStateAction } from "react"
 
 export type Book = {
     id: number,
@@ -17,26 +17,25 @@ export type Book = {
 export type FilterProps = {
     name: string,
     options: string[],
-    paramName: string,
     type: string,
     setType: Dispatch<SetStateAction<string>>
 }
 
-export const DateFilterValue: string[] = 
+export const DateFilterValues: string[] = 
     ['1500s',
     '1600s',
     '1700s',
     '1800s',
     '1900s']
 
-export const ValueFilterValue: string[] = 
+export const ValueFilterValues: string[] = 
     ['<250 SEK', 
     '250-500 SEK', 
     '500-1000 SEK', 
     '1000-2000 SEK', 
     '2000 SEK+']
 
-export const SubjectFilterValue: string[] = [
+export const SubjectFilterValues: string[] = [
     'Poetry', 
     'Drama', 
     'Literature', 
