@@ -9,7 +9,7 @@ import {
 import Link from "next/link";
 import LogoutButton from '../buttons/LogoutButton';
 import LoginButton from '../buttons/LoginButton';
-import { returnUserRole, deleteSession } from '../../lib/session';
+import { returnUserRole, deleteSession } from '../../actions/session';
 import { linkIconStyle, linkStyle, linkTextStyle } from '../../styles';
 
 export default async function Navbar() {

@@ -2,7 +2,7 @@ import { login, register } from "@/app/actions/auth";
 import FeaturedBook from "@/app/components/login/FeaturedBook";
 import { LoginForm } from "@/app/components/login/LoginForm";
 import { getRandomBooks } from "@/app/data/data";
-import { returnUserRole } from "@/app/lib/session";
+import { returnUserRole } from "@/app/actions/session";
 import Image from "next/image";
 
 import { Suspense } from "react";
