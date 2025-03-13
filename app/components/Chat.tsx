@@ -40,13 +40,13 @@ export default function Chat() {
           <div className="flex gap-2">
             <input 
               type="text" 
-              className="flex-1 p-2 border rounded" 
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 text-sm" 
               placeholder="Ask something..." 
               value={input} 
               onChange={(e) => setInput(e.target.value)} 
               onKeyDown={(e) => e.key === "Enter" && sendMessage()} 
             />
-            <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={sendMessage}>Send</button>
+            <button className="flex items-center px-6 py-2 text-sm font-medium text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 bg-blue-600 hover:bg-blue-700" onClick={sendMessage}>Send</button>
           </div>
         </div>
   
