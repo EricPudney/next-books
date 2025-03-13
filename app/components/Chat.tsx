@@ -55,7 +55,7 @@ export default function Chat() {
           <div className="space-y-4">
             <div>
               <p className="text-emerald-800 text-sm">
-                I have implemented a chatbot using the GPT4o mini model via a Python backend. The bot's responses are guided by a system prompt, and it utilises basic retrieval-augmented generation (RAG), enabling access to the CV part of this site. The HTML content is parsed using BeautifulSoup. Currently, the chatbot does not store questions and answers, nor does it consider previous interactions in its responses, which can make conversations a little repetitive.
+                I have implemented a chatbot using the GPT4o mini model via a Python backend. Its responses are guided by a system prompt, and it utilises basic retrieval-augmented generation (RAG), enabling access to the CV part of this site. The HTML content is parsed using BeautifulSoup. Currently, the chatbot does not store questions and answers, nor does it consider previous interactions in its responses, which can make conversations a little repetitive.
               </p>
             </div>
           </div>
