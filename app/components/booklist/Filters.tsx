@@ -8,7 +8,7 @@ import {
   SubjectFilterValues,
   ValueFilterValues,
 } from "../../data/definitions";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 
 export default function Filters() {
   const router = useRouter();
@@ -22,7 +22,7 @@ export default function Filters() {
     {name: "value", options: ValueFilterValues, type: value, setType: setValue}, 
     {name: "subject", options: SubjectFilterValues, type: subject, setType: setSubject}
   ]
-  
+
   const handleFilterChange = (key: string, value: string) => {
     const newParams = new URLSearchParams(searchParams);
     if (value) {
