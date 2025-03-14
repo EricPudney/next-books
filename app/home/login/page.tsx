@@ -10,7 +10,7 @@ import { Suspense } from "react";
 export default async function Page() {
   const userRole = await returnUserRole();
 
-  // generated code from Claude.ai. Only I will see this in the front end so replacing it is not a priority
+  // mostly generated code from Claude.ai. 
   if (userRole === "ADMIN") {
     return (
       <main className="min-h-screen pt-20 pb-24 md:pb-6 px-4 bg-gray-50">
@@ -18,18 +18,17 @@ export default async function Page() {
           <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Hi Eric</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Quick Stats */}
-              <div className="bg-blue-50 rounded-lg p-4">
-                <h3 className="text-lg font-semibold text-blue-900 mb-2">Collection Stats</h3>
-                <p className="text-blue-700">Your book collection is growing!</p>
+            <div className="bg-blue-50 rounded-lg p-4">
+                <h3 className="text-lg font-semibold text-blue-900 mb-2">Blue box</h3>
+                <p className="text-blue-700">A nice blue box!</p>
               </div>
               <div className="bg-green-50 rounded-lg p-4">
-                <h3 className="text-lg font-semibold text-green-900 mb-2">Recent Activity</h3>
-                <p className="text-green-700">Latest updates and changes</p>
+                <h3 className="text-lg font-semibold text-green-900 mb-2">Green box</h3>
+                <p className="text-green-700">A nice green box!</p>
               </div>
               <div className="bg-purple-50 rounded-lg p-4">
-                <h3 className="text-lg font-semibold text-purple-900 mb-2">Quick Actions</h3>
-                <p className="text-purple-700">Manage your collection</p>
+                <h3 className="text-lg font-semibold text-purple-900 mb-2">Purple box</h3>
+                <p className="text-purple-700">A nice purple box!</p>
               </div>
             </div>
           </div>
