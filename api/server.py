@@ -69,4 +69,4 @@ def fetch_cv_data():
         return response.text
     else:
         print("Error fetching data from CV page")
-        return {}
+        return "CV data unavailable"

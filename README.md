@@ -8,3 +8,4 @@ to do:
 
 to run FE: npm run dev
 to run python BE: uvicorn server:app --reload
+to start venv: source .venv/Scripts/activate (in GitBash, from root)
