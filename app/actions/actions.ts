@@ -4,6 +4,7 @@ import { sql } from "@vercel/postgres";
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { redirect } from "next/navigation";
+import { put } from '@vercel/blob';
 
 
 const TempFormSchema = z.object({
@@ -55,13 +56,14 @@ const NewBookSchema = z.object({
     date: z.coerce.number(),
     volumes: z.coerce.number(),
     notes: z.string(),
-    image: z.string()
 })
 
 export async function addBook(formData: FormData) {
+    const imageFile = formData.get('image') as File;
+    console.log('imageFile:', imageFile);
+    const blob = await addImage(imageFile)
     const addForm = Object.fromEntries(formData.entries());
     const newBook = NewBookSchema.parse(addForm);
-    const imageLink = newBook.image.replace("dl=0", "raw=1");
 
     await sql`
     INSERT INTO books (title, author, subject, binding, condition, value, date, volumes, notes, image)
@@ -74,8 +76,16 @@ export async function addBook(formData: FormData) {
         ${newBook.date},
         ${newBook.volumes},
         ${newBook.notes},
-        ${imageLink})
+        ${blob.url})
     `
-    revalidatePath('/home/booklist');
-    redirect(`/home/booklist`);
+
+    revalidatePath('/home/booklist');    
+    redirect('/home/booklist');    
+}
+
+async function addImage(image: File) {
+    const blob = await put(image.name, image, {
+      access: 'public',
+    });
+    return blob;
 }

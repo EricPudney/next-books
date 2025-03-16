@@ -1,4 +1,7 @@
+'use client'
+
 import { Book } from "../data/definitions";
+import ImagePicker from "./ImagePicker";
 
 export default function BookForm({book}: {book: Book | null}) {
 
@@ -16,7 +19,6 @@ export default function BookForm({book}: {book: Book | null}) {
     { name: 'date', label: 'Date*', type: 'number', required: true },
     { name: 'volumes', label: 'Volumes*', type: 'number', required: true },
     { name: 'notes', label: 'Notes', type: 'text' },
-    { name: 'image', label: 'Image Link*', type: 'text', required: true },
   ];
   
   return (
@@ -36,6 +38,7 @@ export default function BookForm({book}: {book: Book | null}) {
           />
         </div>
       ))}
+      <ImagePicker />
     </>
   );
 }
