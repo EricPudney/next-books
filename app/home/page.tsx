@@ -49,7 +49,7 @@ export default async function Page() {
               The Collection
             </h3>
             <p className="text-blue-800">
-            The carousel above automatically updates whenever new books are added to the database. The data is fetched using SQL queries executed by a server action against a PostgreSQL database. <a className="text-blue-600 underline" href="https://zod.dev/">Zod</a> is used for schema validation to ensure data integrity. The carousel itself is built with <a className="text-blue-600 underline" href="https://www.npmjs.com/package/react-multi-carousel">react-multi-carousel</a>, which I have found to be an excellent, easy-to-use library. Images for the books are mostly linked from a dropbox account, but I have started to migrate them to <a className="text-blue-600 underline" href="https://vercel.com/docs/storage/vercel-blob">Vercel Blob</a> for more efficient storage, faster retrieval, and better integration with the rest of the app.
+            The carousel above automatically updates whenever new books are added to the database. The data is fetched using SQL queries executed by a server action against a PostgreSQL database. <a className="text-blue-600 underline" href="https://zod.dev/">Zod</a> is used for schema validation to ensure data integrity. The carousel itself is built with <a className="text-blue-600 underline" href="https://www.npmjs.com/package/react-multi-carousel">react-multi-carousel</a>, which I have found to be an excellent, easy-to-use library. Images for the books are stored separately on <a className="text-blue-600 underline" href="https://vercel.com/docs/storage/vercel-blob">Vercel Blob</a> which ensures effective integration with the rest of the app.
             </p>
           </div>
           

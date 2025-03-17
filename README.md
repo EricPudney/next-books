@@ -4,7 +4,7 @@ to do:
 - refactor generated code
 - improve RAG for AI prompt
 - Swedish text for main site?
-- complete migration of image files to Vercel Blob
+- fix styling for edit book page (low priority)
 
 to run FE: npm run dev
 to run python BE: uvicorn server:app --reload

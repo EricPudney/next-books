@@ -60,7 +60,6 @@ const NewBookSchema = z.object({
 
 export async function addBook(formData: FormData) {
     const imageFile = formData.get('image') as File;
-    console.log('imageFile:', imageFile);
     const blob = await addImage(imageFile)
     const addForm = Object.fromEntries(formData.entries());
     const newBook = NewBookSchema.parse(addForm);

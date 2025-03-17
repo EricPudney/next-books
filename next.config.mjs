@@ -5,11 +5,6 @@ images: {
   remotePatterns: [
     {
       protocol: 'https',
-      hostname: "www.dropbox.com",
-      pathname: '**',
-    },
-    {
-      protocol: 'https',
       hostname: 'efphkakmf7zk6mhn.public.blob.vercel-storage.com',
       port: '',
     },
