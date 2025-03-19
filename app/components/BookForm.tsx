@@ -3,7 +3,7 @@
 import { Book } from "../data/definitions";
 import ImagePicker from "./ImagePicker";
 
-export default function BookForm({book}: {book: Book | null}) {
+export default function BookForm({book, active}: {book: Book | null, active: boolean}) {
 
 
   const inputClass = "w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 text-sm";
@@ -38,7 +38,7 @@ export default function BookForm({book}: {book: Book | null}) {
           />
         </div>
       ))}
-      <ImagePicker />
+      <ImagePicker active={active}/>
     </>
   );
 }

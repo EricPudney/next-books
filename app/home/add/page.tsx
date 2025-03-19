@@ -48,7 +48,7 @@ return (
           <div className="lg:col-span-2">
             <form name="addBook" action={addBook} className="bg-white rounded-lg shadow-md p-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <BookForm book={null} />
+                <BookForm book={null} active={userRole === "ADMIN"}/>
               </div>
               
               <div className="mt-8 flex items-center justify-between">
