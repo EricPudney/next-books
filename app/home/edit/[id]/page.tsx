@@ -14,7 +14,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
             <h2 className='mb-4 text-xl md:text-2xl mt-16'>Edit book no. {ref}</h2>
             <form name="editedBook" action={editBook} className="flex flex-col mx-16">
                 <input type="hidden" name='id' value={ref}/>
-                <BookForm book={book} />
+                <BookForm book={book} active={true}/>
                 <div className="flex mx-24 mt-4 justify-between">
                     <Backbutton />
                     <UploadButton active={true}/>
