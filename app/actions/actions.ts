@@ -23,7 +23,6 @@ const TempFormSchema = z.object({
 
 
 export async function editBook(formData: FormData) {
-
     const tempForm = Object.fromEntries(formData.entries());
     const editedBook = TempFormSchema.parse(tempForm);
     const imageLink = editedBook.image.replace("dl=0", "raw=1");
