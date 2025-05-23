@@ -1,11 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetchChatResponse } from "@/app/actions/chat";
 
 export default function Chat() {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
   const [input, setInput] = useState("");
+  const [thinking, setThinking] = useState(false)
+  const scrollDown = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    scrollDown.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, thinking])
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -15,11 +21,15 @@ export default function Chat() {
     setInput("");
 
     try {
+      console.log("Backend URL:", process.env.NEXT_PUBLIC_BACKEND_URL);
+      setThinking(true)
       const response = await fetchChatResponse(input);
       setMessages([...newMessages, { role: "assistant", content: response }]);
     } catch (error) {
       console.error(error);
       setMessages([...newMessages, { role: "assistant", content: "Error fetching response." }]);
+    } finally {
+      setThinking(false)
     }
   };
 
@@ -27,7 +37,7 @@ export default function Chat() {
     <div className="max-w-4xl mx-auto p-4">
       <div className="flex flex-col md:flex-row gap-4">
         <div className="w-full md:w-2/3 border rounded-lg shadow-md bg-white p-4">
-          <div className="h-80 overflow-y-auto mb-4 p-2 border">
+          <div className="h-80 overflow-y-auto mb-4 p-2 border relative">
             {messages.map((msg, index) => (
               <div key={index} className={`mb-2 ${msg.role === "user" ? "text-right" : "text-left"}`}>
                 <span className={msg.role === "user" ? "bg-blue-500 text-white" : "bg-gray-200 text-black"} 
@@ -36,6 +46,8 @@ export default function Chat() {
                 </span>
               </div>
             ))}
+            {thinking && <div className="flex justify-center mt-4 text-gray-500 font-medium animate-pulse">...thinking...</div>}
+            <div ref={scrollDown}/>
           </div>
           <div className="flex gap-2">
             <input 

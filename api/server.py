@@ -1,5 +1,4 @@
-# api/server.py
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import openai
 import os
