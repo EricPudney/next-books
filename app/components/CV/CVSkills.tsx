@@ -3,7 +3,7 @@ export default function CVSkills() {
     "React",
     "Next.js",
     "Node.js",
-    "TypeScript",
+    "JavaScript/TypeScript",
     "Python",
     "AI",
     "Java/Java Spring",

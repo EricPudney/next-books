@@ -58,15 +58,6 @@ export default function Page() {
                     link={"https://certificates.cs50.io/f7aec661-249d-44c9-9768-2b870ad53275.pdf?size=letter"}
                   />
                     <CVLink
-                      title={content[language].link3_title}
-                      text={content[language].link3_text}
-                      link={
-                        language === "en"
-                          ? "/EricPudneyCV(eng).pdf"
-                          : "/EricPudneyCV(sv).pdf"
-                      }
-                    />
-                    <CVLink
                       title={content[language].link1_title}
                       text={content[language].link1_text}
                       link={
@@ -125,6 +116,10 @@ export default function Page() {
                     institution={content[language].ed_sch1}
                     text={content[language].ed_d1}
                   />
+                  <JobOrSchoolDetails 
+                    title={content[language].ed_t5}
+                    institution={content[language].ed_sch5}
+                    text={content[language].ed_d5}/>
                   <JobOrSchoolDetails
                     title={content[language].ed_t2}
                     institution={content[language].ed_sch2}
